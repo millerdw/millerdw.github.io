@@ -22,7 +22,7 @@ footer-links:
   email:
   facebook:
   flickr:
-  github: github.com/millerdw
+  github: millerdw
   instagram:
   linkedin:
   pinterest:
@@ -79,7 +79,7 @@ gems:
   - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
   - jekyll-remote-theme
 
-remote_theme: "mmistakes/minimal-mistakes"
+remote_theme: mmistakes/minimal-mistakes
 
 # Exclude these files from your production _site
 exclude:
