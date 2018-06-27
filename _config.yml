@@ -28,7 +28,7 @@ footer-links:
   pinterest:
   rss: articles
   twitter: 
-  stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
+  stackoverflow: users/5147442/david-miller
   youtube: # channel/<your_long_string> or user/<user-name>
   googleplus: # anything in your profile username that comes after plus.google.com/
 
@@ -75,12 +75,9 @@ sass:
 
 # Use the following plug-ins
 gems:
-  - github-pages
   - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
   - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
-  - jekyll-remote-theme
 
-remote_theme: mmistakes/minimal-mistakes
 
 # Exclude these files from your production _site
 exclude:
