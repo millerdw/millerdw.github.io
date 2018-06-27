@@ -1,0 +1,85 @@
+2018-06-23 19:10:30 - F# Interactive for F# 4.1
+2018-06-23 19:10:30 - Freely distributed under the Apache 2.0 Open Source License
+2018-06-23 19:10:30 - For help type #help;;
+2018-06-23 19:10:30 - > val it : ResizeArray<System.Type * (obj -> seq<string * string> * string)> =
+2018-06-23 19:10:30 -   seq []
+2018-06-23 19:10:30 - --> Added 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3' to library include path
+2018-06-23 19:10:30 - --> Referenced 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\IfSharp.Kernel.dll' (file may be locked by F# Interactive process)
+2018-06-23 19:10:30 - --> Referenced 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\NetMQ.dll' (file may be locked by F# Interactive process)
+2018-06-23 19:10:43 - #load "Paket.fsx"
+2018-06-23 19:10:43 - Paket.Package [
+2018-06-23 19:10:43 -     "FSharp.Data"
+2018-06-23 19:10:43 -     "XPlot.Plotly"
+2018-06-23 19:10:43 -     ]
+2018-06-23 19:10:43 - #load "Paket.Generated.Refs.fsx"
+2018-06-23 19:11:02 - open FSharp.Data
+2018-06-23 19:11:02 - let wb = WorldBankData.GetDataContext()
+2018-06-23 19:11:02 - let agriculturalIndicators = wb.Topics.``Agriculture & Rural Development``.Indicators
+2018-06-23 19:11:04 - #load "XPlot.Plotly.fsx"
+2018-06-23 19:11:04 - open XPlot.Plotly
+2018-06-23 19:11:06 - let ukCerealYields =
+2018-06-23 19:11:06 -     wb.Countries.``United Kingdom``
+2018-06-23 19:11:06 -         .Indicators.``Cereal yield (kg per hectare)``
+2018-06-23 19:11:09 - ukCerealYields
+2018-06-23 19:11:09 -     |> Chart.Line
+2018-06-23 19:11:09 -     |> Chart.WithLayout(Layout(title = "UK Cereal Yields", 
+2018-06-23 19:11:09 -                                 showlegend = false, 
+2018-06-23 19:11:09 -                                 xaxis=Xaxis(title="Year"),
+2018-06-23 19:11:09 -                                 yaxis=Yaxis(title="Cereal Yields (kg per hectare)")))
+2018-06-23 19:11:09 - let ukFertilizerConsumption = 
+2018-06-23 19:11:09 -     wb.Countries.``United Kingdom``
+2018-06-23 19:11:09 -         .Indicators.``Fertilizer consumption (kilograms per hectare of arable land)``
+2018-06-23 19:11:12 - ukFertilizerConsumption
+2018-06-23 19:11:12 -     |> Chart.Line
+2018-06-23 19:11:12 -     |> Chart.WithLayout(Layout(title = "UK Fertilizer Consumption", 
+2018-06-23 19:11:12 -                                 showlegend = false, 
+2018-06-23 19:11:12 -                                 xaxis=Xaxis(title="Year"),
+2018-06-23 19:11:12 -                                 yaxis=Yaxis(title="Fertilizer consumption (kg per hectare)")))
+2018-06-23 19:11:12 - Paket.Package ["Deedle"]
+2018-06-23 19:11:12 - #load "Paket.Generated.Refs.fsx"
+2018-06-23 19:11:15 - open Deedle
+2018-06-23 19:11:15 - let ukFertilizerEffectFrame =
+2018-06-23 19:11:15 -     frame [
+2018-06-23 19:11:15 -             "ukCerealYield" => Series(ukCerealYields |> dict);
+2018-06-23 19:11:15 -             "ukFertilizerConsumption" => Series(ukFertilizerConsumption |> dict)
+2018-06-23 19:11:15 -             ]
+2018-06-23 19:11:15 - ukFertilizerEffectFrame
+2018-06-23 19:11:16 - open System
+2018-06-23 19:11:16 - ukFertilizerEffectFrame
+2018-06-23 19:11:16 -     |> Frame.toArray2D
+2018-06-23 19:11:16 -     |> fun f -> seq {for i in 0..(Array2D.length1(f)-1) do yield (f.[i,1], f.[i,0])}
+2018-06-23 19:11:16 -     |> Seq.filter(fun (x,y) -> not (Double.IsNaN(x) || Double.IsNaN(y)))
+2018-06-23 19:11:16 -     |> Chart.Scatter
+2018-06-23 19:11:16 -     |> Chart.WithLayout(Layout(title = "UK Fertilizer Effect", 
+2018-06-23 19:11:16 -                                 showlegend = false, 
+2018-06-23 19:11:16 -                                 xaxis=Xaxis(title="Fertilizer Consumption (kg per hectare)"),
+2018-06-23 19:11:16 -                                 yaxis=Yaxis(title="Cereal Yield (kg per hectare)")))
+2018-06-23 19:11:16 -     
+2018-06-23 19:11:16 - let cerealYield_fertilizerConsumption_Global =
+2018-06-23 19:11:16 -     seq { 
+2018-06-23 19:11:16 -         for country in wb.Countries do 
+2018-06-23 19:11:16 -             yield ( country.Name,
+2018-06-23 19:11:16 -                     country.Indicators.``Cereal yield (kg per hectare)``.[2015],
+2018-06-23 19:11:16 -                     country.Indicators.``Fertilizer consumption (kilograms per hectare of arable land)``.[2015] ) 
+2018-06-23 19:11:16 -                     }
+2018-06-23 19:11:16 - cerealYield_fertilizerConsumption_Global
+2018-06-23 19:11:21 - cerealYield_fertilizerConsumption_Global
+2018-06-23 19:11:21 -     |> Seq.filter(fun (c,y,f) -> not (Double.IsNaN(y) || Double.IsNaN(f)) && (y < 10000.0) && (f < 1000.))
+2018-06-23 19:11:21 -     |> Seq.map(fun (c,y,f) -> (f,y))
+2018-06-23 19:11:21 -     |> Chart.Scatter
+2018-06-23 19:11:21 -     |> Chart.WithLayout(Layout(title = "Global 2015 Fertilizer Effect", 
+2018-06-23 19:11:21 -                                 showlegend = false, 
+2018-06-23 19:11:21 -                                 xaxis=Xaxis(title="Fertilizer Consumption (kg per hectare)"),
+2018-06-23 19:11:21 -                                 yaxis=Yaxis(title="Cereal Yield (kg per hectare)")))
+2018-06-23 19:12:15 - cerealYield_fertilizerConsumption_Global
+2018-06-23 19:12:15 -     |> Seq.filter(fun (c,y,f) -> not (Double.IsNaN(y) || Double.IsNaN(f)) && not ((y < 10000.0) && (f < 1000.)))
+2018-06-23 19:12:15 -     |> Util.Table
+2018-06-23 19:12:15 - Unknown content type on shell. msg_type is `comm_info_request`
+2018-06-23 21:40:47 - F# Interactive for F# 4.1
+2018-06-23 21:40:47 - Freely distributed under the Apache 2.0 Open Source License
+2018-06-23 21:40:47 - For help type #help;;
+2018-06-23 21:40:47 - > val it : ResizeArray<System.Type * (obj -> seq<string * string> * string)> =
+2018-06-23 21:40:47 -   seq []
+2018-06-23 21:40:47 - --> Added 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3' to library include path
+2018-06-23 21:40:47 - --> Referenced 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\IfSharp.Kernel.dll' (file may be locked by F# Interactive process)
+2018-06-23 21:40:47 - --> Referenced 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\NetMQ.dll' (file may be locked by F# Interactive process)

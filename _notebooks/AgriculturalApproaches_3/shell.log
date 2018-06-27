@@ -1,0 +1,50 @@
+2018-06-23 22:04:06 - F# Interactive for F# 4.1
+2018-06-23 22:04:06 - Freely distributed under the Apache 2.0 Open Source License
+2018-06-23 22:04:06 - For help type #help;;
+2018-06-23 22:04:06 - > val it : ResizeArray<System.Type * (obj -> seq<string * string> * string)> =
+2018-06-23 22:04:06 -   seq []
+2018-06-23 22:04:06 - --> Added 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3' to library include path
+2018-06-23 22:04:06 - --> Referenced 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\IfSharp.Kernel.dll' (file may be locked by F# Interactive process)
+2018-06-23 22:04:06 - --> Referenced 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\NetMQ.dll' (file may be locked by F# Interactive process)
+2018-06-23 22:04:21 - #load "Paket.fsx"
+2018-06-23 22:04:21 - Paket.Package [
+2018-06-23 22:04:21 -     "FSharp.Data"
+2018-06-23 22:04:21 -     "Deedle"
+2018-06-23 22:04:21 -     "XPlot.Plotly"
+2018-06-23 22:04:21 -     ]
+2018-06-23 22:04:21 - #load "Paket.Generated.Refs.fsx"
+2018-06-23 22:04:38 - open System
+2018-06-23 22:04:38 - open FSharp.Data
+2018-06-23 22:04:38 - open Deedle
+2018-06-23 22:04:38 - #load "XPlot.Plotly.fsx"
+2018-06-23 22:04:38 - open XPlot.Plotly
+2018-06-23 22:04:39 - let wb = WorldBankData.GetDataContext()
+2018-06-23 22:04:40 - let ukCerealYields = 
+2018-06-23 22:04:40 -     wb.Countries.``United Kingdom``
+2018-06-23 22:04:40 -         .Indicators.``Cereal yield (kg per hectare)``
+2018-06-23 22:04:40 - let ukTractorDensities =
+2018-06-23 22:04:40 -     wb.Countries.``United Kingdom``
+2018-06-23 22:04:40 -         .Indicators.``Agricultural machinery, tractors per 100 sq. km of arable land``
+2018-06-23 22:04:46 - ukTractorDensity
+2018-06-23 22:04:46 -     |> Chart.Line
+2018-06-23 22:04:46 -     |> Chart.WithLayout(Layout(title = "UK Tractor Density",
+2018-06-23 22:04:46 -                                 showlegend = false, 
+2018-06-23 22:04:46 -                                 xaxis=Xaxis(title="Year"),
+2018-06-23 22:04:46 -                                 yaxis=Yaxis(title="Tractors per 100 sq. km")))
+2018-06-23 22:04:47 - The value or constructor 'ukTractorDensity' is not defined. Maybe you want one of the following:
+2018-06-23 22:04:47 -    ukTractorDensities
+2018-06-23 22:04:47 - A unique overload for method 'Line' could not be determined based on type information prior to this program point. A type annotation may be needed. Candidates: static member Chart.Line : data:seq<#key * #value> -> PlotlyChart, static member Chart.Line : data:seq<#seq<'a1 * 'a2>> -> PlotlyChart when 'a1 :> key and 'a2 :> value, static member Chart.Line : data:seq<#value> -> PlotlyChart
+2018-06-23 22:04:47 - let ukTractorEffectFrame =
+2018-06-23 22:04:47 -     frame [
+2018-06-23 22:04:47 -             "ukCerealYield" => Series(ukCerealYields |> dict);
+2018-06-23 22:04:47 -             "ukTractorDensity" => Series(ukTractorDensities |> dict)
+2018-06-23 22:04:47 -             ]
+2018-06-23 22:04:47 - ukTractorEffectFrame
+2018-06-23 22:04:47 -     |> Frame.toArray2D
+2018-06-23 22:04:47 -     |> fun f -> seq {for i in 0..(Array2D.length1(f)-1) do yield (f.[i,1], f.[i,0])}
+2018-06-23 22:04:47 -     |> Seq.filter(fun (x,y) -> not (Double.IsNaN(x) || Double.IsNaN(y)))
+2018-06-23 22:04:47 -     |> Chart.Scatter
+2018-06-23 22:04:47 -     |> Chart.WithLayout(Layout(title = "UK Tractor Effect", 
+2018-06-23 22:04:47 -                                 showlegend = false, 
+2018-06-23 22:04:47 -                                 xaxis=Xaxis(title="Tractor Density (units per 100 sq. km)"),
+2018-06-23 22:04:47 -                                 yaxis=Yaxis(title="Cereal Yield (kg per hectare)")))

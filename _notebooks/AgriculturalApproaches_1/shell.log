@@ -1,0 +1,70 @@
+2018-06-23 19:09:00 - F# Interactive for F# 4.1
+2018-06-23 19:09:00 - Freely distributed under the Apache 2.0 Open Source License
+2018-06-23 19:09:00 - For help type #help;;
+2018-06-23 19:09:00 - > val it : ResizeArray<System.Type * (obj -> seq<string * string> * string)> =
+2018-06-23 19:09:00 -   seq []
+2018-06-23 19:09:00 - --> Added 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3' to library include path
+2018-06-23 19:09:00 - --> Referenced 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\IfSharp.Kernel.dll' (file may be locked by F# Interactive process)
+2018-06-23 19:09:00 - --> Referenced 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\NetMQ.dll' (file may be locked by F# Interactive process)
+2018-06-23 19:09:03 - #load "Paket.fsx"
+2018-06-23 19:09:03 - Paket.Package ["FSharp.Data"]
+2018-06-23 19:09:03 - #load "Paket.Generated.Refs.fsx"
+2018-06-23 19:09:13 - Unknown content type on shell. msg_type is `comm_info_request`
+2018-06-23 19:09:29 - open FSharp.Data
+2018-06-23 19:09:29 - let wb = WorldBankData.GetDataContext()
+2018-06-23 19:09:29 - wb.GetType()
+2018-06-23 19:09:30 - wb.GetType().GetProperties()
+2018-06-23 19:09:30 -     |> Util.Table
+2018-06-23 19:09:32 - wb.GetType().GetMethods()
+2018-06-23 19:09:32 -     |> Util.Table
+2018-06-23 19:09:32 - let topics = wb.GetTopics()
+2018-06-23 19:09:32 - The field, constructor or member 'GetTopics' is not defined. Maybe you want one of the following:
+2018-06-23 19:09:32 -    get_Topics
+2018-06-23 19:09:32 -    GetType
+2018-06-23 19:09:32 -    Topics
+2018-06-23 19:09:32 - let topics = wb.Topics
+2018-06-23 19:09:32 - topics
+2018-06-23 19:09:32 -     |> Seq.take(10)
+2018-06-23 19:09:32 -     |> Util.Table
+2018-06-23 19:09:33 - topics.Trade.GetType()
+2018-06-23 19:09:33 - topics.Agriculture & RuralDevelopment.GetType()
+2018-06-23 19:09:33 - In F# code, use 'e1 && e2' instead of 'e1 & e2'
+2018-06-23 19:09:33 - The field, constructor or member 'Agriculture' is not defined. Maybe you want one of the following:
+2018-06-23 19:09:33 -    Agriculture & Rural Development
+2018-06-23 19:09:33 - The value, namespace, type or module 'RuralDevelopment' is not defined.
+2018-06-23 19:09:33 - let agricultureTopic = topics.``Agriculture & Rural Development``
+2018-06-23 19:09:33 - agricultureTopic.GetType()
+2018-06-23 19:09:33 - agricultureTopic.Description
+2018-06-23 19:09:33 - let agricultureIndicators = agricultureTopic.Indicators
+2018-06-23 19:09:33 - agricultureIndicators 
+2018-06-23 19:09:33 -     |> Seq.take(10)
+2018-06-23 19:09:33 -     |> Util.Table
+2018-06-23 19:09:40 - let cerealYield = agricultureIndicators.``Cereal yield (kg per hectare)``
+2018-06-23 19:09:40 - cerealYield.GetType()
+2018-06-23 19:09:42 - let cerealYield = agricultureIndicators.``Cereal yield (kg per hectare)``.["2016"] 
+2018-06-23 19:09:44 - The field, constructor or member 'Item' is not defined.
+2018-06-23 19:09:44 - let countries = wb.Countries
+2018-06-23 19:09:44 - countries
+2018-06-23 19:09:44 -     |> Seq.take(10)
+2018-06-23 19:09:44 -     |> Util.Table
+2018-06-23 19:09:45 - let ukCerealYields = wb.Countries.``United Kingdom``.Indicators.``Cereal yield (kg per hectare)``
+2018-06-23 19:09:45 - ukCerealYields.GetType()
+2018-06-23 19:09:47 - ukCerealYields
+2018-06-23 19:09:47 -     |> Seq.take(10)
+2018-06-23 19:09:47 -     |> Util.Table
+2018-06-23 20:09:11 - F# Interactive for F# 4.1
+2018-06-23 20:09:11 - Freely distributed under the Apache 2.0 Open Source License
+2018-06-23 20:09:11 - For help type #help;;
+2018-06-23 20:09:11 - > val it : ResizeArray<System.Type * (obj -> seq<string * string> * string)> =
+2018-06-23 20:09:11 -   seq []
+2018-06-23 20:09:11 - --> Added 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3' to library include path
+2018-06-23 20:09:11 - --> Referenced 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\IfSharp.Kernel.dll' (file may be locked by F# Interactive process)
+2018-06-23 20:09:11 - --> Referenced 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\NetMQ.dll' (file may be locked by F# Interactive process)
+2018-06-23 21:10:50 - F# Interactive for F# 4.1
+2018-06-23 21:10:50 - Freely distributed under the Apache 2.0 Open Source License
+2018-06-23 21:10:50 - For help type #help;;
+2018-06-23 21:10:50 - > val it : ResizeArray<System.Type * (obj -> seq<string * string> * string)> =
+2018-06-23 21:10:50 -   seq []
+2018-06-23 21:10:50 - --> Added 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3' to library include path
+2018-06-23 21:10:50 - --> Referenced 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\IfSharp.Kernel.dll' (file may be locked by F# Interactive process)
+2018-06-23 21:10:50 - --> Referenced 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\NetMQ.dll' (file may be locked by F# Interactive process)
