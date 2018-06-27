@@ -1,4 +1,8 @@
-# About this blog
+---
+layout: page
+title: About This Place
+permalink: /about/
+---
 
 ### A bit about me
 I'm a data scientist/developer working in the City of London. I started by learning SQL, then C# and .NET, and soon became a database developer and poor man's DBA. Eventually I began playing with functional languages as well, and after a few years I joined a quantitative investment team.
