@@ -91,3 +91,251 @@
 2018-06-30 09:51:37 - --> Added 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3' to library include path
 2018-06-30 09:51:37 - --> Referenced 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\IfSharp.Kernel.dll' (file may be locked by F# Interactive process)
 2018-06-30 09:51:37 - --> Referenced 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\NetMQ.dll' (file may be locked by F# Interactive process)
+2018-07-01 11:41:21 - shutdown request
+2018-07-01 11:43:04 - F# Interactive for F# 4.1
+2018-07-01 11:43:04 - Freely distributed under the Apache 2.0 Open Source License
+2018-07-01 11:43:04 - For help type #help;;
+2018-07-01 11:43:04 - > val it : ResizeArray<System.Type * (obj -> seq<string * string> * string)> =
+2018-07-01 11:43:04 -   seq []
+2018-07-01 11:43:04 - --> Added 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3' to library include path
+2018-07-01 11:43:04 - --> Referenced 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\IfSharp.Kernel.dll' (file may be locked by F# Interactive process)
+2018-07-01 11:43:04 - --> Referenced 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\NetMQ.dll' (file may be locked by F# Interactive process)
+2018-07-01 11:43:05 - #load "Paket.fsx"
+2018-07-01 11:43:05 - Paket.Package [
+2018-07-01 11:43:05 -     "FSharp.Data"
+2018-07-01 11:43:05 -     "XPlot.Plotly"
+2018-07-01 11:43:05 -     ]
+2018-07-01 11:43:05 - #load "Paket.Generated.Refs.fsx"
+2018-07-01 11:43:36 - Expression evaluation failed: Unable to retrieve package versions for 'FSharp.Data'
+2018-07-01 11:43:36 - -- CLOSED --
+2018-07-01 11:43:36 -    FSharp.Core >= 4.2.3 < 4.3 (from C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\paket.dependencies)
+2018-07-01 11:43:36 -    Deedle  (from C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\paket.dependencies)
+2018-07-01 11:43:36 - -- OPEN ----
+2018-07-01 11:43:36 -    FSharp.Data  (from C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\paket.dependencies)
+2018-07-01 11:43:36 -    XPlot.Plotly  (from C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\paket.dependencies)
+2018-07-01 11:43:36 - ExceptionUnable to retrieve package versions for 'FSharp.Data'
+2018-07-01 11:43:36 - -- CLOSED --
+2018-07-01 11:43:36 -    FSharp.Core >= 4.2.3 < 4.3 (from C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\paket.dependencies)
+2018-07-01 11:43:36 -    Deedle  (from C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\paket.dependencies)
+2018-07-01 11:43:36 - -- OPEN ----
+2018-07-01 11:43:36 -    FSharp.Data  (from C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\paket.dependencies)
+2018-07-01 11:43:36 -    XPlot.Plotly  (from C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\paket.dependencies)
+2018-07-01 11:43:36 -    at Paket.PackageResolver.getVersionsBlock@1025-1.GenerateNext(IEnumerable`1& next)
+2018-07-01 11:43:36 -    at Microsoft.FSharp.Core.CompilerServices.GeneratedSequenceBase`1.MoveNextImpl()
+2018-07-01 11:43:36 -    at Microsoft.FSharp.Collections.SeqModule.oneStepTo@986[T](IEnumerable`1 source, List`1 prefix, FSharpRef`1 enumeratorR, Int32 i)
+2018-07-01 11:43:36 -    at Microsoft.FSharp.Collections.SeqModule.f@4733-2[T](IEnumerable`1 source, List`1 prefix, FSharpRef`1 enumeratorR, Int32 i, Unit unitVar0)
+2018-07-01 11:43:36 -    at Microsoft.FSharp.Collections.SeqModule.result@1002.Invoke(Int32 i)
+2018-07-01 11:43:36 -    at Microsoft.FSharp.Collections.Internal.IEnumerator.unfold@199.DoMoveNext(b& )
+2018-07-01 11:43:36 -    at Microsoft.FSharp.Collections.Internal.IEnumerator.MapEnumerator`1.System-Collections-IEnumerator-MoveNext()
+2018-07-01 11:43:36 -    at Microsoft.FSharp.Collections.Internal.IEnumerator.map@74.DoMoveNext(b& )
+2018-07-01 11:43:36 -    at Microsoft.FSharp.Collections.Internal.IEnumerator.MapEnumerator`1.System-Collections-IEnumerator-MoveNext()
+2018-07-01 11:43:36 -    at Microsoft.FSharp.Collections.Internal.IEnumerator.next@187[T](FSharpFunc`2 f, IEnumerator`1 e, FSharpRef`1 started, Unit unitVar0)
+2018-07-01 11:43:36 -    at Microsoft.FSharp.Collections.Internal.IEnumerator.filter@182.System-Collections-IEnumerator-MoveNext()
+2018-07-01 11:43:36 -    at Microsoft.FSharp.Collections.SeqModule.oneStepTo@986[T](IEnumerable`1 source, List`1 prefix, FSharpRef`1 enumeratorR, Int32 i)
+2018-07-01 11:43:36 -    at Microsoft.FSharp.Collections.SeqModule.f@4733-2[T](IEnumerable`1 source, List`1 prefix, FSharpRef`1 enumeratorR, Int32 i, Unit unitVar0)
+2018-07-01 11:43:36 -    at Microsoft.FSharp.Collections.SeqModule.result@1002.Invoke(Int32 i)
+2018-07-01 11:43:36 -    at Microsoft.FSharp.Collections.Internal.IEnumerator.unfold@199.DoMoveNext(b& )
+2018-07-01 11:43:36 -    at Microsoft.FSharp.Collections.Internal.IEnumerator.MapEnumerator`1.System-Collections-IEnumerator-MoveNext()
+2018-07-01 11:43:36 -    at Microsoft.FSharp.Collections.SeqModule.IsEmpty[T](IEnumerable`1 source)
+2018-07-01 11:43:36 -    at Paket.PackageResolver.getCompatibleVersions(ResolverStep currentStep, GroupName groupName, PackageRequirement currentRequirement, IDictionary`2 rootDependencies, FSharpFunc`2 getVersionsF, Boolean globalOverride, FSharpOption`1 globalStrategyForDirectDependencies, FSharpOption`1 globalStrategyForTransitives)
+2018-07-01 11:43:36 -    at Paket.PackageResolver.step@1079(UpdateMode updateMode, GroupName groupName, FSharpOption`1 globalStrategyForTransitives, FSharpOption`1 globalStrategyForDirectDependencies, FrameworkRestrictions globalFrameworkRestrictions, FSharpFunc`2 getVersionsRaw, FSharpFunc`2 getPreferredVersionsRaw, FSharpFunc`2 getPackageDetailsRaw, FSharpSet`1 cliToolSettings, ResolverRequestQueue workerQueue, Int32 taskTimeout, ConcurrentDictionary`2 startedGetPackageDetailsRequests, FSharpFunc`2 getPackageDetailsBlock, ConcurrentDictionary`2 startedGetVersionsRequests, FSharpOption`1 packageFilter, IDictionary`2 rootDependenciesDict, FSharpSet`1 lockedPackages, Stage stage, StackPack stackpack, IEnumerable`1 compatibleVersions, StepFlags flags)
+2018-07-01 11:43:36 -    at Paket.PackageResolver.Resolve(FSharpFunc`2 getVersionsRaw, FSharpFunc`2 getPreferredVersionsRaw, FSharpFunc`2 getPackageDetailsRaw, GroupName groupName, FSharpOption`1 globalStrategyForDirectDependencies, FSharpOption`1 globalStrategyForTransitives, FrameworkRestrictions globalFrameworkRestrictions, FSharpSet`1 rootDependencies, UpdateMode updateMode)
+2018-07-01 11:43:36 -    at <StartupCode$Paket-Core>.$DependenciesFile.resolveGroup@216-1.Invoke(GroupName groupName, b _arg1)
+2018-07-01 11:43:36 -    at Microsoft.FSharp.Collections.MapTreeModule.mapiOpt[a,b,c](FSharpFunc`3 f, MapTree`2 m)
+2018-07-01 11:43:36 -    at Microsoft.FSharp.Collections.FSharpMap`2.Map[b](FSharpFunc`2 f)
+2018-07-01 11:43:36 -    at Paket.UpdateProcess.selectiveUpdate(Boolean force, FSharpFunc`2 getSha1, FSharpFunc`2 getVersionsF, FSharpFunc`2 getPackageDetailsF, FSharpFunc`2 getRuntimeGraphFromPackage, LockFile lockFile, DependenciesFile dependenciesFile, UpdateMode updateMode, SemVerUpdateMode semVerUpdateMode)
+2018-07-01 11:43:36 -    at Paket.UpdateProcess.SelectiveUpdate(DependenciesFile dependenciesFile, FSharpOption`1 alternativeProjectRoot, UpdateMode updateMode, SemVerUpdateMode semVerUpdateMode, Boolean force)
+2018-07-01 11:43:36 -    at Paket.AddProcess.add$cont@48-1(FSharpFunc`2 addToProjectsF, GroupName groupName, PackageName package, InstallerOptions options, Boolean installAfter, FSharpRef`1 lockFile, Boolean lockFileHasPackage, DependenciesFile dependenciesFile, IEnumerable`1 projects, Unit unitVar)
+2018-07-01 11:43:36 -    at <StartupCode$Paket-Core>.$PublicAPI.Add@182-17.Invoke(Unit unitVar0)
+2018-07-01 11:43:36 -    at Paket.Utils.RunInLockedAccessMode[a](String rootFolder, FSharpFunc`2 action)
+2018-07-01 11:43:36 -    at Paket.Dependencies.Add(FSharpOption`1 groupName, String package, String version, Boolean force, Boolean withBindingRedirects, Boolean cleanBindingRedirects, Boolean createNewBindingFiles, Boolean interactive, Boolean installAfter, SemVerUpdateMode semVerUpdateMode, Boolean touchAffectedRefs, Boolean runResolver)
+2018-07-01 11:43:36 -    at FSI_0004.Paket.Package(IEnumerable`1 list) in C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\Paket.fsx:line 49
+2018-07-01 11:43:36 -    at <StartupCode$FSI_0005>.$FSI_0005.main@()
+2018-07-01 11:43:36 - AggregateExceptionOne or more errors occurred.
+2018-07-01 11:43:36 -    at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+2018-07-01 11:43:36 -    at System.Threading.Tasks.Task.Wait(Int32 millisecondsTimeout, CancellationToken cancellationToken)
+2018-07-01 11:43:36 -    at Paket.PackageResolver.ResolverTaskMemory`1.Wait(Int32 timeout)
+2018-07-01 11:43:36 -    at Paket.PackageResolver.getAndReport@962[a](Int32 taskTimeout, FSharpList`1 sources, BlockReason blockReason, ResolverTaskMemory`1 mem)
+2018-07-01 11:43:36 -    at Paket.PackageResolver.getVersionsBlock@1025-1.GenerateNext(IEnumerable`1& next)
+2018-07-01 11:43:36 - AggregateExceptionOne or more errors occurred.
+2018-07-01 11:43:36 - AggregateExceptionCould not find versions for package FSharp.Data on https://www.nuget.org/api/v2.
+2018-07-01 11:43:36 -    at Paket.NuGet.GetVersions@597-7.Invoke(GetVersionRequestResult _arg6)
+2018-07-01 11:43:36 -    at Microsoft.FSharp.Control.AsyncBuilderImpl.args@823-1.Invoke(a a)
+2018-07-01 11:43:36 - AggregateExceptionSource 'https://www.nuget.org/api/v2' yielded no results
+2018-07-01 11:43:36 - ExceptionRequest 'https://www.nuget.org/api/v2/FindPackagesById()?semVerLevel=2.0.0&id='FSharp.Data'' finished with error
+2018-07-01 11:43:36 - ExceptionCould not retrieve data from 'https://www.nuget.org/api/v2/FindPackagesById()?semVerLevel=2.0.0&id='FSharp.Data''
+2018-07-01 11:43:36 -    at Paket.Utils.getFromUrl@749-8.Invoke(Exception _arg4)
+2018-07-01 11:43:36 -    at Microsoft.FSharp.Control.AsyncBuilderImpl.callA@839.Invoke(AsyncParams`1 args)
+2018-07-01 11:43:36 - HttpRequestExceptionAn error occurred while sending the request.
+2018-07-01 11:43:36 - WebExceptionThe remote name could not be resolved: 'www.nuget.org'
+2018-07-01 11:43:36 -    at System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
+2018-07-01 11:43:36 -    at System.Net.Http.HttpClientHandler.GetResponseCallback(IAsyncResult ar)
+2018-07-01 11:43:36 - open FSharp.Data
+2018-07-01 11:43:36 - let wb = WorldBankData.GetDataContext()
+2018-07-01 11:43:36 - The value, namespace, type or module 'WorldBankData' is not defined.
+2018-07-01 11:43:36 - let agriculturalIndicators = wb.Topics.``Agriculture & Rural Development``.Indicators
+2018-07-01 11:43:36 - The value, namespace, type or module 'wb' is not defined.
+2018-07-01 11:43:36 - #load "XPlot.Plotly.fsx"
+2018-07-01 11:43:36 - open XPlot.Plotly
+2018-07-01 11:43:39 - let ukCerealYields =
+2018-07-01 11:43:39 -     wb.Countries.``United Kingdom``
+2018-07-01 11:43:39 -         .Indicators.``Cereal yield (kg per hectare)``
+2018-07-01 11:43:39 - The value, namespace, type or module 'wb' is not defined.
+2018-07-01 11:43:39 - ukCerealYields
+2018-07-01 11:43:39 -     |> Chart.Line
+2018-07-01 11:43:39 -     |> Chart.WithLayout(Layout(title = "UK Cereal Yields", 
+2018-07-01 11:43:39 -                                 showlegend = false, 
+2018-07-01 11:43:39 -                                 xaxis=Xaxis(title="Year"),
+2018-07-01 11:43:39 -                                 yaxis=Yaxis(title="Cereal Yields (kg per hectare)")))
+2018-07-01 11:43:39 - The value or constructor 'ukCerealYields' is not defined.
+2018-07-01 11:43:39 - A unique overload for method 'Line' could not be determined based on type information prior to this program point. A type annotation may be needed. Candidates: static member Chart.Line : data:seq<#key * #value> -> PlotlyChart, static member Chart.Line : data:seq<#seq<'a1 * 'a2>> -> PlotlyChart when 'a1 :> key and 'a2 :> value, static member Chart.Line : data:seq<#value> -> PlotlyChart
+2018-07-01 11:43:39 - let ukFertilizerConsumption = 
+2018-07-01 11:43:39 -     wb.Countries.``United Kingdom``
+2018-07-01 11:43:39 -         .Indicators.``Fertilizer consumption (kilograms per hectare of arable land)``
+2018-07-01 11:43:39 - The value, namespace, type or module 'wb' is not defined.
+2018-07-01 11:43:39 - ukFertilizerConsumption
+2018-07-01 11:43:39 -     |> Chart.Line
+2018-07-01 11:43:39 -     |> Chart.WithLayout(Layout(title = "UK Fertilizer Consumption", 
+2018-07-01 11:43:39 -                                 showlegend = false, 
+2018-07-01 11:43:39 -                                 xaxis=Xaxis(title="Year"),
+2018-07-01 11:43:39 -                                 yaxis=Yaxis(title="Fertilizer consumption (kg per hectare)")))
+2018-07-01 11:43:39 - The value or constructor 'ukFertilizerConsumption' is not defined.
+2018-07-01 11:43:39 - A unique overload for method 'Line' could not be determined based on type information prior to this program point. A type annotation may be needed. Candidates: static member Chart.Line : data:seq<#key * #value> -> PlotlyChart, static member Chart.Line : data:seq<#seq<'a1 * 'a2>> -> PlotlyChart when 'a1 :> key and 'a2 :> value, static member Chart.Line : data:seq<#value> -> PlotlyChart
+2018-07-01 11:43:40 - Paket.Package ["Deedle"]
+2018-07-01 11:43:40 - #load "Paket.Generated.Refs.fsx"
+2018-07-01 11:43:40 - The value, namespace, type or module 'Paket' is not defined.
+2018-07-01 11:43:40 - open Deedle
+2018-07-01 11:43:40 - The namespace or module 'Deedle' is not defined.
+2018-07-01 11:43:40 - let ukFertilizerEffectFrame =
+2018-07-01 11:43:40 -     frame [
+2018-07-01 11:43:40 -             "ukCerealYield" => Series(ukCerealYields |> dict);
+2018-07-01 11:43:40 -             "ukFertilizerConsumption" => Series(ukFertilizerConsumption |> dict)
+2018-07-01 11:43:40 -             ]
+2018-07-01 11:43:40 - ukFertilizerEffectFrame
+2018-07-01 11:43:40 - The value or constructor 'frame' is not defined. Maybe you want one of the following:
+2018-07-01 11:43:40 -    Trace
+2018-07-01 11:43:40 - open System
+2018-07-01 11:43:40 - ukFertilizerEffectFrame
+2018-07-01 11:43:40 -     |> Frame.toArray2D
+2018-07-01 11:43:40 -     |> fun f -> seq {for i in 0..(Array2D.length1(f)-1) do yield (f.[i,1], f.[i,0])}
+2018-07-01 11:43:40 -     |> Seq.filter(fun (x,y) -> not (Double.IsNaN(x) || Double.IsNaN(y)))
+2018-07-01 11:43:40 -     |> Chart.Scatter
+2018-07-01 11:43:40 -     |> Chart.WithLayout(Layout(title = "UK Fertilizer Effect", 
+2018-07-01 11:43:40 -                                 showlegend = false, 
+2018-07-01 11:43:40 -                                 xaxis=Xaxis(title="Fertilizer Consumption (kg per hectare)"),
+2018-07-01 11:43:40 -                                 yaxis=Yaxis(title="Cereal Yield (kg per hectare)")))
+2018-07-01 11:43:40 -     
+2018-07-01 11:43:40 - The value or constructor 'ukFertilizerEffectFrame' is not defined.
+2018-07-01 11:43:40 - The value, namespace, type or module 'Frame' is not defined. Maybe you want one of the following:
+2018-07-01 11:43:40 -    Trace
+2018-07-01 11:43:40 - let cerealYield_fertilizerConsumption_Global =
+2018-07-01 11:43:40 -     seq { 
+2018-07-01 11:43:40 -         for country in wb.Countries do 
+2018-07-01 11:43:40 -             yield ( country.Name,
+2018-07-01 11:43:40 -                     country.Indicators.``Cereal yield (kg per hectare)``.[2015],
+2018-07-01 11:43:40 -                     country.Indicators.``Fertilizer consumption (kilograms per hectare of arable land)``.[2015] ) 
+2018-07-01 11:43:40 -                     }
+2018-07-01 11:43:40 - cerealYield_fertilizerConsumption_Global
+2018-07-01 11:43:40 - The value, namespace, type or module 'wb' is not defined.
+2018-07-01 11:43:40 - The field, constructor or member 'Indicators' is not defined.
+2018-07-01 11:43:40 - The operator 'expr.[idx]' has been used on an object of indeterminate type based on information prior to this program point. Consider adding further type constraints
+2018-07-01 11:43:40 - The field, constructor or member 'Indicators' is not defined.
+2018-07-01 11:43:40 - The operator 'expr.[idx]' has been used on an object of indeterminate type based on information prior to this program point. Consider adding further type constraints
+2018-07-01 11:43:40 - cerealYield_fertilizerConsumption_Global
+2018-07-01 11:43:40 -     |> Seq.filter(fun (c,y,f) -> not (Double.IsNaN(y) || Double.IsNaN(f)) && (y < 10000.0) && (f < 1000.))
+2018-07-01 11:43:40 -     |> Seq.map(fun (c,y,f) -> (f,y))
+2018-07-01 11:43:40 -     |> Chart.Scatter
+2018-07-01 11:43:40 -     |> Chart.WithLayout(Layout(title = "Global 2015 Fertilizer Effect", 
+2018-07-01 11:43:40 -                                 showlegend = false, 
+2018-07-01 11:43:40 -                                 xaxis=Xaxis(title="Fertilizer Consumption (kg per hectare)"),
+2018-07-01 11:43:40 -                                 yaxis=Yaxis(title="Cereal Yield (kg per hectare)")))
+2018-07-01 11:43:40 - The value or constructor 'cerealYield_fertilizerConsumption_Global' is not defined.
+2018-07-01 11:43:40 - The value, namespace, type or module 'Double' is not defined. Maybe you want one of the following:
+2018-07-01 11:43:40 -    double
+2018-07-01 11:43:40 - The value, namespace, type or module 'Double' is not defined. Maybe you want one of the following:
+2018-07-01 11:43:40 -    double
+2018-07-01 11:43:40 - cerealYield_fertilizerConsumption_Global
+2018-07-01 11:43:40 -     |> Seq.filter(fun (c,y,f) -> not (Double.IsNaN(y) || Double.IsNaN(f)) && not ((y < 10000.0) && (f < 1000.)))
+2018-07-01 11:43:40 -     |> Util.Table
+2018-07-01 11:43:40 - The value or constructor 'cerealYield_fertilizerConsumption_Global' is not defined.
+2018-07-01 11:43:40 - The value, namespace, type or module 'Double' is not defined. Maybe you want one of the following:
+2018-07-01 11:43:40 -    double
+2018-07-01 11:43:40 - The value, namespace, type or module 'Double' is not defined. Maybe you want one of the following:
+2018-07-01 11:43:40 -    double
+2018-07-01 17:07:38 - shutdown request
+2018-07-01 17:08:16 - F# Interactive for F# 4.1
+2018-07-01 17:08:16 - Freely distributed under the Apache 2.0 Open Source License
+2018-07-01 17:08:16 - For help type #help;;
+2018-07-01 17:08:16 - > val it : ResizeArray<System.Type * (obj -> seq<string * string> * string)> =
+2018-07-01 17:08:16 -   seq []
+2018-07-01 17:08:16 - --> Added 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3' to library include path
+2018-07-01 17:08:16 - --> Referenced 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\IfSharp.Kernel.dll' (file may be locked by F# Interactive process)
+2018-07-01 17:08:16 - --> Referenced 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\NetMQ.dll' (file may be locked by F# Interactive process)
+2018-07-01 17:08:16 - #load "Paket.fsx"
+2018-07-01 17:08:16 - Paket.Package [
+2018-07-01 17:08:16 -     "FSharp.Data"
+2018-07-01 17:08:16 -     "XPlot.Plotly"
+2018-07-01 17:08:16 -     ]
+2018-07-01 17:08:16 - #load "Paket.Generated.Refs.fsx"
+2018-07-01 17:08:29 - open FSharp.Data
+2018-07-01 17:08:29 - let wb = WorldBankData.GetDataContext()
+2018-07-01 17:08:30 - let agriculturalIndicators = wb.Topics.``Agriculture & Rural Development``.Indicators
+2018-07-01 17:08:32 - #load "XPlot.Plotly.fsx"
+2018-07-01 17:08:32 - open XPlot.Plotly
+2018-07-01 17:08:33 - let ukCerealYields =
+2018-07-01 17:08:33 -     wb.Countries.``United Kingdom``
+2018-07-01 17:08:33 -         .Indicators.``Cereal yield (kg per hectare)``
+2018-07-01 17:08:36 - ukCerealYields
+2018-07-01 17:08:36 -     |> Chart.Line
+2018-07-01 17:08:36 -     |> Chart.WithLayout(Layout(title = "UK Cereal Yields", 
+2018-07-01 17:08:36 -                                 showlegend = false, 
+2018-07-01 17:08:36 -                                 xaxis=Xaxis(title="Year"),
+2018-07-01 17:08:36 -                                 yaxis=Yaxis(title="Cereal Yields (kg per hectare)")))
+2018-07-01 17:08:36 - let ukFertilizerConsumption = 
+2018-07-01 17:08:36 -     wb.Countries.``United Kingdom``
+2018-07-01 17:08:36 -         .Indicators.``Fertilizer consumption (kilograms per hectare of arable land)``
+2018-07-01 17:08:38 - ukFertilizerConsumption
+2018-07-01 17:08:38 -     |> Chart.Line
+2018-07-01 17:08:38 -     |> Chart.WithLayout(Layout(title = "UK Fertilizer Consumption", 
+2018-07-01 17:08:38 -                                 showlegend = false, 
+2018-07-01 17:08:38 -                                 xaxis=Xaxis(title="Year"),
+2018-07-01 17:08:38 -                                 yaxis=Yaxis(title="Fertilizer consumption (kg per hectare)")))
+2018-07-01 17:08:38 - Paket.Package ["Deedle"]
+2018-07-01 17:08:38 - #load "Paket.Generated.Refs.fsx"
+2018-07-01 17:08:41 - open Deedle
+2018-07-01 17:08:41 - let ukFertilizerEffectFrame =
+2018-07-01 17:08:41 -     frame [
+2018-07-01 17:08:41 -             "ukCerealYield" => Series(ukCerealYields |> dict);
+2018-07-01 17:08:41 -             "ukFertilizerConsumption" => Series(ukFertilizerConsumption |> dict)
+2018-07-01 17:08:41 -             ]
+2018-07-01 17:08:41 - ukFertilizerEffectFrame
+2018-07-01 17:08:41 - open System
+2018-07-01 17:08:41 - ukFertilizerEffectFrame
+2018-07-01 17:08:41 -     |> Frame.toArray2D
+2018-07-01 17:08:41 -     |> fun f -> seq {for i in 0..(Array2D.length1(f)-1) do yield (f.[i,1], f.[i,0])}
+2018-07-01 17:08:41 -     |> Seq.filter(fun (x,y) -> not (Double.IsNaN(x) || Double.IsNaN(y)))
+2018-07-01 17:08:41 -     |> Chart.Scatter
+2018-07-01 17:08:41 -     |> Chart.WithLayout(Layout(title = "UK Fertilizer Effect", 
+2018-07-01 17:08:41 -                                 showlegend = false, 
+2018-07-01 17:08:41 -                                 xaxis=Xaxis(title="Fertilizer Consumption (kg per hectare)"),
+2018-07-01 17:08:41 -                                 yaxis=Yaxis(title="Cereal Yield (kg per hectare)")))
+2018-07-01 17:08:41 -     
+2018-07-01 17:08:41 - let cerealYield_fertilizerConsumption_Global =
+2018-07-01 17:08:41 -     seq { 
+2018-07-01 17:08:41 -         for country in wb.Countries do 
+2018-07-01 17:08:41 -             yield ( country.Name,
+2018-07-01 17:08:41 -                     country.Indicators.``Cereal yield (kg per hectare)``.[2015],
+2018-07-01 17:08:41 -                     country.Indicators.``Fertilizer consumption (kilograms per hectare of arable land)``.[2015] ) 
+2018-07-01 17:08:41 -                     }
+2018-07-01 17:08:41 - cerealYield_fertilizerConsumption_Global
+2018-07-01 17:08:46 - cerealYield_fertilizerConsumption_Global
+2018-07-01 17:08:46 -     |> Seq.filter(fun (c,y,f) -> not (Double.IsNaN(y) || Double.IsNaN(f)) && (y < 10000.0) && (f < 1000.))
+2018-07-01 17:08:46 -     |> Seq.map(fun (c,y,f) -> (f,y))
+2018-07-01 17:08:46 -     |> Chart.Scatter
+2018-07-01 17:08:46 -     |> Chart.WithLayout(Layout(title = "Global 2015 Fertilizer Effect", 
+2018-07-01 17:08:46 -                                 showlegend = false, 
+2018-07-01 17:08:46 -                                 xaxis=Xaxis(title="Fertilizer Consumption (kg per hectare)"),
+2018-07-01 17:08:46 -                                 yaxis=Yaxis(title="Cereal Yield (kg per hectare)")))
+2018-07-01 17:08:54 - cerealYield_fertilizerConsumption_Global
+2018-07-01 17:08:54 -     |> Seq.filter(fun (c,y,f) -> not (Double.IsNaN(y) || Double.IsNaN(f)) && not ((y < 10000.0) && (f < 1000.)))
+2018-07-01 17:08:54 -     |> Util.Table
