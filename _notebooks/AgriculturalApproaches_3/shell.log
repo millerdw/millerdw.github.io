@@ -849,3 +849,129 @@
 2018-07-07 16:06:02 -                                showlegend = false, 
 2018-07-07 16:06:02 -                                xaxis=Xaxis(title="Tractor Density (units per 100 sq. km)"),
 2018-07-07 16:06:02 -                                yaxis=Yaxis(title="Cereal Yield (kg per hectare)")))
+2018-07-08 13:04:02 - F# Interactive for F# 4.1
+2018-07-08 13:04:02 - Freely distributed under the Apache 2.0 Open Source License
+2018-07-08 13:04:02 - For help type #help;;
+2018-07-08 13:04:02 - > val it : ResizeArray<System.Type * (obj -> seq<string * string> * string)> =
+2018-07-08 13:04:02 -   seq []
+2018-07-08 13:04:02 - --> Added 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3' to library include path
+2018-07-08 13:04:02 - --> Referenced 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\IfSharp.Kernel.dll' (file may be locked by F# Interactive process)
+2018-07-08 13:04:02 - --> Referenced 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\NetMQ.dll' (file may be locked by F# Interactive process)
+2018-07-08 13:04:49 - let (xi_tractor, yi_tractor) =
+2018-07-08 13:04:49 -     ukTractorEffectFrame
+2018-07-08 13:04:49 -         |> Frame.toArray2D
+2018-07-08 13:04:49 -         |> fun f -> [| for i in 0..(Array2D.length1(f)-1) do yield (f.[i,1], f.[i,0]) |]
+2018-07-08 13:04:49 -         |> Array.filter(fun (x,y) -> not (Double.IsNaN(x) || Double.IsNaN(y)))
+2018-07-08 13:04:49 -         |> Array.unzip
+2018-07-08 13:04:49 -         
+2018-07-08 13:04:49 - let (c,m) =
+2018-07-08 13:04:49 -     (xi_tractor, yi_tractor
+2018-07-08 13:04:49 -         |> Fit.Line
+2018-07-08 13:04:49 - m, c
+2018-07-08 13:04:49 - Unmatched '('
+2018-07-08 13:04:49 - The value or constructor 'ukTractorEffectFrame' is not defined.
+2018-07-08 13:04:49 - The value, namespace, type or module 'Frame' is not defined.
+2018-07-08 13:04:49 - The value, namespace, type or module 'Double' is not defined. Maybe you want one of the following:
+2018-07-08 13:04:49 -    double
+2018-07-08 13:04:49 - The value, namespace, type or module 'Double' is not defined. Maybe you want one of the following:
+2018-07-08 13:04:49 -    double
+2018-07-08 13:04:55 - let (xi_tractor, yi_tractor) =
+2018-07-08 13:04:55 -     ukTractorEffectFrame
+2018-07-08 13:04:55 -         |> Frame.toArray2D
+2018-07-08 13:04:55 -         |> fun f -> [| for i in 0..(Array2D.length1(f)-1) do yield (f.[i,1], f.[i,0]) |]
+2018-07-08 13:04:55 -         |> Array.filter(fun (x,y) -> not (Double.IsNaN(x) || Double.IsNaN(y)))
+2018-07-08 13:04:55 -         |> Array.unzip
+2018-07-08 13:04:55 -         
+2018-07-08 13:04:55 - let (c,m) =
+2018-07-08 13:04:55 -     (xi_tractor, yi_tractor)
+2018-07-08 13:04:55 -         |> Fit.Line
+2018-07-08 13:04:55 - m, c
+2018-07-08 13:04:55 - The value or constructor 'ukTractorEffectFrame' is not defined.
+2018-07-08 13:04:55 - The value, namespace, type or module 'Frame' is not defined.
+2018-07-08 13:04:55 - The value, namespace, type or module 'Double' is not defined. Maybe you want one of the following:
+2018-07-08 13:04:55 -    double
+2018-07-08 13:04:55 - The value, namespace, type or module 'Double' is not defined. Maybe you want one of the following:
+2018-07-08 13:04:55 -    double
+2018-07-08 13:04:55 - The value, namespace, type or module 'Fit' is not defined. Maybe you want one of the following:
+2018-07-08 13:04:55 -    it
+2018-07-08 13:04:55 -    fst
+2018-07-08 13:05:01 - #load "Paket.fsx"
+2018-07-08 13:05:01 - Paket.Package [
+2018-07-08 13:05:01 -     "FSharp.Data"
+2018-07-08 13:05:01 -     "Deedle"
+2018-07-08 13:05:01 -     "XPlot.Plotly"
+2018-07-08 13:05:01 -     ]
+2018-07-08 13:05:01 - #load "Paket.Generated.Refs.fsx"
+2018-07-08 13:05:16 - open System
+2018-07-08 13:05:16 - open FSharp.Data
+2018-07-08 13:05:16 - open Deedle
+2018-07-08 13:05:16 - #load "XPlot.Plotly.fsx"
+2018-07-08 13:05:16 - open XPlot.Plotly
+2018-07-08 13:05:16 - let wb = WorldBankData.GetDataContext()
+2018-07-08 13:05:17 - let ukCerealYields = 
+2018-07-08 13:05:17 -     wb.Countries.``United Kingdom``
+2018-07-08 13:05:17 -         .Indicators.``Cereal yield (kg per hectare)``
+2018-07-08 13:05:17 - let ukTractorDensities =
+2018-07-08 13:05:17 -     wb.Countries.``United Kingdom``
+2018-07-08 13:05:17 -         .Indicators.``Agricultural machinery, tractors per 100 sq. km of arable land``
+2018-07-08 13:05:22 - ukTractorDensities
+2018-07-08 13:05:22 -     |> Chart.Line
+2018-07-08 13:05:22 -     |> Chart.WithLayout(Layout(title = "UK Tractor Density",
+2018-07-08 13:05:22 -                                 showlegend = false, 
+2018-07-08 13:05:22 -                                 xaxis=Xaxis(title="Year"),
+2018-07-08 13:05:22 -                                 yaxis=Yaxis(title="Tractors per 100 sq. km")))
+2018-07-08 13:05:22 - let ukTractorEffectFrame =
+2018-07-08 13:05:22 -     frame [
+2018-07-08 13:05:22 -             "ukCerealYield" => Series(ukCerealYields |> dict);
+2018-07-08 13:05:22 -             "ukTractorDensity" => Series(ukTractorDensities |> dict)
+2018-07-08 13:05:22 -             ]
+2018-07-08 13:05:23 - ukTractorEffectFrame
+2018-07-08 13:05:23 -     |> Frame.toArray2D
+2018-07-08 13:05:23 -     |> fun f -> seq {for i in 0..(Array2D.length1(f)-1) do yield (f.[i,1], f.[i,0])}
+2018-07-08 13:05:23 -     |> Seq.filter(fun (x,y) -> not (Double.IsNaN(x) || Double.IsNaN(y)))
+2018-07-08 13:05:23 -     |> Chart.Scatter
+2018-07-08 13:05:23 -     |> Chart.WithLayout(Layout(title = "UK Tractor Effect", 
+2018-07-08 13:05:23 -                                 showlegend = false, 
+2018-07-08 13:05:23 -                                 xaxis=Xaxis(title="Tractor Density (units per 100 sq. km)"),
+2018-07-08 13:05:23 -                                 yaxis=Yaxis(title="Cereal Yield (kg per hectare)")))
+2018-07-08 13:05:23 -                                     
+2018-07-08 13:14:13 - let (xi_tractor, yi_tractor) =
+2018-07-08 13:14:13 -     ukTractorEffectFrame
+2018-07-08 13:14:13 -         |> Frame.toArray2D
+2018-07-08 13:14:13 -         |> fun f -> [| for i in 0..(Array2D.length1(f)-1) do yield (f.[i,1], f.[i,0]) |]
+2018-07-08 13:14:13 -         |> Array.filter(fun (x,y) -> not (Double.IsNaN(x) || Double.IsNaN(y)))
+2018-07-08 13:14:13 -         |> Array.unzip
+2018-07-08 13:14:13 -         
+2018-07-08 13:14:13 - let (c,m) =
+2018-07-08 13:14:13 -     (xi_tractor, yi_tractor)
+2018-07-08 13:14:13 -         |> Fit.Line
+2018-07-08 13:14:13 - m, c
+2018-07-08 13:14:13 - The value, namespace, type or module 'Fit' is not defined. Maybe you want one of the following:
+2018-07-08 13:14:13 -    it
+2018-07-08 13:14:13 -    fst
+2018-07-08 13:14:19 - Paket.Package [
+2018-07-08 13:14:19 -     "MathNet.Numerics"
+2018-07-08 13:14:19 -     "MathNet.Numerics.FSharp"
+2018-07-08 13:14:19 -     ]
+2018-07-08 13:14:19 - #load "Paket.Generated.Refs.fsx"
+2018-07-08 13:14:50 - open MathNet.Numerics
+2018-07-08 13:14:50 - let (xi_tractor, yi_tractor) =
+2018-07-08 13:14:50 -     ukTractorEffectFrame
+2018-07-08 13:14:50 -         |> Frame.toArray2D
+2018-07-08 13:14:50 -         |> fun f -> [| for i in 0..(Array2D.length1(f)-1) do yield (f.[i,1], f.[i,0]) |]
+2018-07-08 13:14:50 -         |> Array.filter(fun (x,y) -> not (Double.IsNaN(x) || Double.IsNaN(y)))
+2018-07-08 13:14:50 -         |> Array.unzip
+2018-07-08 13:14:50 -         
+2018-07-08 13:14:50 - let (c,m) =
+2018-07-08 13:14:50 -     (xi_tractor, yi_tractor)
+2018-07-08 13:14:50 -         |> Fit.Line
+2018-07-08 13:14:50 - m, c
+2018-07-08 13:16:02 - let xi_trend = seq { 625. .. 1. .. 770. }
+2018-07-08 13:16:02 - let yi_trend = xi_trend |> Seq.map(fun x -> m*x + c)
+2018-07-08 13:16:02 - [   Scatter(x=xi_tractor,y=yi_tractor, mode="markers");
+2018-07-08 13:16:02 -     Scatter(x=xi_trend,y=yi_trend,mode = "lines")]
+2018-07-08 13:16:02 -     |> Chart.Plot
+2018-07-08 13:16:02 -     |> Chart.WithLayout(Layout(title = "UK Tractor Effect", 
+2018-07-08 13:16:02 -                                showlegend = false, 
+2018-07-08 13:16:02 -                                xaxis=Xaxis(title="Tractor Density (units per 100 sq. km)"),
+2018-07-08 13:16:02 -                                yaxis=Yaxis(title="Cereal Yield (kg per hectare)")))
