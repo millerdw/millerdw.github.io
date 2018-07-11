@@ -975,3 +975,19 @@
 2018-07-08 13:16:02 -                                showlegend = false, 
 2018-07-08 13:16:02 -                                xaxis=Xaxis(title="Tractor Density (units per 100 sq. km)"),
 2018-07-08 13:16:02 -                                yaxis=Yaxis(title="Cereal Yield (kg per hectare)")))
+2018-07-09 14:29:03 - F# Interactive for F# 4.1
+2018-07-09 14:29:03 - Freely distributed under the Apache 2.0 Open Source License
+2018-07-09 14:29:03 - For help type #help;;
+2018-07-09 14:29:03 - > val it : ResizeArray<System.Type * (obj -> seq<string * string> * string)> =
+2018-07-09 14:29:03 -   seq []
+2018-07-09 14:29:03 - --> Added 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3' to library include path
+2018-07-09 14:29:03 - --> Referenced 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\IfSharp.Kernel.dll' (file may be locked by F# Interactive process)
+2018-07-09 14:29:03 - --> Referenced 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\NetMQ.dll' (file may be locked by F# Interactive process)
+2018-07-10 19:49:09 - F# Interactive for F# 4.1
+2018-07-10 19:49:10 - Freely distributed under the Apache 2.0 Open Source License
+2018-07-10 19:49:10 - For help type #help;;
+2018-07-10 19:49:10 - > val it : ResizeArray<System.Type * (obj -> seq<string * string> * string)> =
+2018-07-10 19:49:10 -   seq []
+2018-07-10 19:49:10 - --> Added 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3' to library include path
+2018-07-10 19:49:10 - --> Referenced 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\IfSharp.Kernel.dll' (file may be locked by F# Interactive process)
+2018-07-10 19:49:10 - --> Referenced 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\NetMQ.dll' (file may be locked by F# Interactive process)
