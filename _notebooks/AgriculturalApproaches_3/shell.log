@@ -975,3 +975,127 @@
 2018-07-08 13:16:02 -                                showlegend = false, 
 2018-07-08 13:16:02 -                                xaxis=Xaxis(title="Tractor Density (units per 100 sq. km)"),
 2018-07-08 13:16:02 -                                yaxis=Yaxis(title="Cereal Yield (kg per hectare)")))
+2018-07-14 17:05:58 - F# Interactive for F# 4.1
+2018-07-14 17:05:58 - Freely distributed under the Apache 2.0 Open Source License
+2018-07-14 17:05:58 - For help type #help;;
+2018-07-14 17:05:58 - > val it : ResizeArray<System.Type * (obj -> seq<string * string> * string)> =
+2018-07-14 17:05:58 -   seq []
+2018-07-14 17:05:58 - --> Added 'C:\Users\Mille\Downloads\IfSharp.v3.0.0-beta3' to library include path
+2018-07-14 17:05:58 - --> Referenced 'C:\Users\Mille\Downloads\IfSharp.v3.0.0-beta3\IfSharp.Kernel.dll' (file may be locked by F# Interactive process)
+2018-07-14 17:05:58 - --> Referenced 'C:\Users\Mille\Downloads\IfSharp.v3.0.0-beta3\NetMQ.dll' (file may be locked by F# Interactive process)
+2018-07-14 19:10:00 - shutdown request
+2018-07-14 19:10:04 - F# Interactive for F# 4.1
+2018-07-14 19:10:04 - Freely distributed under the Apache 2.0 Open Source License
+2018-07-14 19:10:04 - For help type #help;;
+2018-07-14 19:10:04 - > val it : ResizeArray<System.Type * (obj -> seq<string * string> * string)> =
+2018-07-14 19:10:04 -   seq []
+2018-07-14 19:10:04 - --> Added 'C:\Users\Mille\Downloads\IfSharp.v3.0.0-beta3' to library include path
+2018-07-14 19:10:04 - --> Referenced 'C:\Users\Mille\Downloads\IfSharp.v3.0.0-beta3\IfSharp.Kernel.dll' (file may be locked by F# Interactive process)
+2018-07-14 19:10:04 - --> Referenced 'C:\Users\Mille\Downloads\IfSharp.v3.0.0-beta3\NetMQ.dll' (file may be locked by F# Interactive process)
+2018-07-14 19:10:05 - #load "Paket.fsx"
+2018-07-14 19:10:05 - Paket.Package [
+2018-07-14 19:10:05 -     "FSharp.Data"
+2018-07-14 19:10:05 -     "Deedle"
+2018-07-14 19:10:05 -     "XPlot.Plotly"
+2018-07-14 19:10:05 -     ]
+2018-07-14 19:10:05 - #load "Paket.Generated.Refs.fsx"
+2018-07-14 19:10:24 - open System
+2018-07-14 19:10:24 - open FSharp.Data
+2018-07-14 19:10:24 - open Deedle
+2018-07-14 19:10:24 - #load "XPlot.Plotly.fsx"
+2018-07-14 19:10:24 - open XPlot.Plotly
+2018-07-14 19:10:25 - let wb = WorldBankData.GetDataContext()
+2018-07-14 19:10:25 - let ukCerealYields = 
+2018-07-14 19:10:25 -     wb.Countries.``United Kingdom``
+2018-07-14 19:10:25 -         .Indicators.``Cereal yield (kg per hectare)``
+2018-07-14 19:10:25 - let ukTractorDensities =
+2018-07-14 19:10:25 -     wb.Countries.``United Kingdom``
+2018-07-14 19:10:25 -         .Indicators.``Agricultural machinery, tractors per 100 sq. km of arable land``
+2018-07-14 19:10:29 - ukTractorDensities
+2018-07-14 19:10:29 -     |> Chart.Line
+2018-07-14 19:10:29 -     |> Chart.WithLayout(Layout(title = "UK Tractor Density",
+2018-07-14 19:10:29 -                                 showlegend = false, 
+2018-07-14 19:10:29 -                                 xaxis=Xaxis(title="Year"),
+2018-07-14 19:10:29 -                                 yaxis=Yaxis(title="Tractors per 100 sq. km")))
+2018-07-14 19:10:29 - let ukTractorEffectFrame =
+2018-07-14 19:10:29 -     frame [
+2018-07-14 19:10:29 -             "ukCerealYield" => Series(ukCerealYields |> dict);
+2018-07-14 19:10:29 -             "ukTractorDensity" => Series(ukTractorDensities |> dict)
+2018-07-14 19:10:29 -             ]
+2018-07-14 19:10:30 - ukTractorEffectFrame
+2018-07-14 19:10:30 -     |> Frame.toArray2D
+2018-07-14 19:10:30 -     |> fun f -> seq {for i in 0..(Array2D.length1(f)-1) do yield (f.[i,1], f.[i,0])}
+2018-07-14 19:10:30 -     |> Seq.filter(fun (x,y) -> not (Double.IsNaN(x) || Double.IsNaN(y)))
+2018-07-14 19:10:30 -     |> Chart.Scatter
+2018-07-14 19:10:30 -     |> Chart.WithLayout(Layout(title = "UK Tractor Effect", 
+2018-07-14 19:10:30 -                                 showlegend = false, 
+2018-07-14 19:10:30 -                                 xaxis=Xaxis(title="Tractor Density (units per 100 sq. km)"),
+2018-07-14 19:10:30 -                                 yaxis=Yaxis(title="Cereal Yield (kg per hectare)")))
+2018-07-14 19:10:30 -                                     
+2018-07-14 19:10:30 - Paket.Package [
+2018-07-14 19:10:30 -     "MathNet.Numerics"
+2018-07-14 19:10:30 -     "MathNet.Numerics.FSharp"
+2018-07-14 19:10:30 -     ]
+2018-07-14 19:10:30 - #load "Paket.Generated.Refs.fsx"
+2018-07-14 19:10:37 - Expression evaluation failed: Error during cleaning of C:\Users\Mille\Downloads\IfSharp.v3.0.0-beta3\packages\MathNet.Numerics.FSharp
+2018-07-14 19:10:37 -   - Access to the path 'MathNet.Numerics.FSharp.dll' is denied.
+2018-07-14 19:10:37 - ExceptionError during cleaning of C:\Users\Mille\Downloads\IfSharp.v3.0.0-beta3\packages\MathNet.Numerics.FSharp
+2018-07-14 19:10:37 -   - Access to the path 'MathNet.Numerics.FSharp.dll' is denied.
+2018-07-14 19:10:37 -    at Microsoft.FSharp.Core.PrintfModule.PrintFormatToStringThenFail@1379.Invoke(String message)
+2018-07-14 19:10:37 -    at Paket.Utils.CleanDir(String path)
+2018-07-14 19:10:37 -    at Paket.NuGet.downloadAndExtractPackage(FSharpOption`1 alternativeProjectRoot, String root, Boolean isLocalOverride, PackagesFolderGroupConfig config, PackageSource source, FSharpList`1 caches, GroupName groupName, PackageName packageName, SemVerInfo version, ResolvedPackageKind kind, Boolean includeVersionInPath, Boolean downloadLicense, Boolean force, Boolean detailed)
+2018-07-14 19:10:37 -    at Paket.RestoreProcess.downloadAndExtract@42-1.Invoke(Unit unitVar)
+2018-07-14 19:10:37 -    at Microsoft.FSharp.Control.AsyncBuilderImpl.callA@839.Invoke(AsyncParams`1 args)
+2018-07-14 19:10:37 - --- End of stack trace from previous location where exception was thrown ---
+2018-07-14 19:10:37 -    at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+2018-07-14 19:10:37 -    at Microsoft.FSharp.Control.AsyncBuilderImpl.commit[a](AsyncImplResult`1 res)
+2018-07-14 19:10:37 -    at Microsoft.FSharp.Control.CancellationTokenOps.RunSynchronouslyInCurrentThread[a](CancellationToken token, FSharpAsync`1 computation)
+2018-07-14 19:10:37 -    at Microsoft.FSharp.Control.CancellationTokenOps.RunSynchronously[a](CancellationToken token, FSharpAsync`1 computation, FSharpOption`1 timeout)
+2018-07-14 19:10:37 -    at Microsoft.FSharp.Control.FSharpAsync.RunSynchronously[T](FSharpAsync`1 computation, FSharpOption`1 timeout, FSharpOption`1 cancellationToken)
+2018-07-14 19:10:37 -    at Microsoft.FSharp.Collections.Internal.IEnumerator.map@74.DoMoveNext(b& )
+2018-07-14 19:10:37 -    at Microsoft.FSharp.Collections.Internal.IEnumerator.MapEnumerator`1.System-Collections-IEnumerator-MoveNext()
+2018-07-14 19:10:37 -    at Microsoft.FSharp.Core.CompilerServices.RuntimeHelpers.takeOuter@274[T,TResult](ConcatEnumerator`2 x, Unit unitVar0)
+2018-07-14 19:10:37 -    at Microsoft.FSharp.Core.CompilerServices.RuntimeHelpers.takeOuter@274[T,TResult](ConcatEnumerator`2 x, Unit unitVar0)
+2018-07-14 19:10:37 -    at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+2018-07-14 19:10:37 -    at Microsoft.FSharp.Collections.SeqModule.ToArray[T](IEnumerable`1 source)
+2018-07-14 19:10:37 -    at Paket.InstallProcess.InstallIntoProjects[a](InstallerOptions options, Boolean forceTouch, DependenciesFile dependenciesFile, LockFile lockFile, FSharpList`1 projectsAndReferences, FSharpMap`2 updatedGroups)
+2018-07-14 19:10:37 -    at Paket.UpdateProcess.SmartInstall(DependenciesFile dependenciesFile, UpdateMode updateMode, UpdaterOptions options)
+2018-07-14 19:10:37 -    at <StartupCode$Paket-Core>.$PublicAPI.Install@232.Invoke(Unit unitVar0)
+2018-07-14 19:10:37 -    at Paket.Utils.RunInLockedAccessMode[a](String rootFolder, FSharpFunc`2 action)
+2018-07-14 19:10:37 -    at <StartupCode$FSI_0018>.$FSI_0018.main@()
+2018-07-14 19:10:37 - open MathNet.Numerics
+2018-07-14 19:10:37 - let (xi_tractor, yi_tractor) =
+2018-07-14 19:10:37 -     ukTractorEffectFrame
+2018-07-14 19:10:37 -         |> Frame.toArray2D
+2018-07-14 19:10:37 -         |> fun f -> [| for i in 0..(Array2D.length1(f)-1) do yield (f.[i,1], f.[i,0]) |]
+2018-07-14 19:10:37 -         |> Array.filter(fun (x,y) -> not (Double.IsNaN(x) || Double.IsNaN(y)))
+2018-07-14 19:10:37 -         |> Array.unzip
+2018-07-14 19:10:37 -         
+2018-07-14 19:10:37 - let (c,m) =
+2018-07-14 19:10:37 -     (xi_tractor, yi_tractor)
+2018-07-14 19:10:37 -         |> Fit.Line
+2018-07-14 19:10:37 - m, c
+2018-07-14 19:10:37 - ukTractorEffectFrame.Columns |> dict
+2018-07-14 19:10:37 - The type 'ColumnSeries<int,string>' is not compatible with the type 'seq<obj * obj>'
+2018-07-14 19:10:37 - ukTractorEffectFrame.Columns |> Array.map(fun s -> s)
+2018-07-14 19:10:37 - Type mismatch. Expecting a
+2018-07-14 19:10:37 -     'ColumnSeries<int,string> -> obj'    
+2018-07-14 19:10:37 - but given a
+2018-07-14 19:10:37 -     'obj [] -> obj []'    
+2018-07-14 19:10:37 - The type 'ColumnSeries<int,string>' does not match the type 'obj []'
+2018-07-14 19:10:37 - Type mismatch. Expecting a
+2018-07-14 19:10:37 -     'ColumnSeries<int,string> -> obj'    
+2018-07-14 19:10:37 - but given a
+2018-07-14 19:10:37 -     'obj [] -> obj []'    
+2018-07-14 19:10:37 - The type 'ColumnSeries<int,string>' does not match the type 'obj []'
+2018-07-14 19:10:37 - ukTractorEffectFrame.Columns |> Seq.map(fun s -> s)
+2018-07-14 19:10:37 - The type 'ColumnSeries<int,string>' is not compatible with the type 'seq<obj>'
+2018-07-14 19:10:37 - let xi_trend = seq { 625. .. 1. .. 770. }
+2018-07-14 19:10:37 - let yi_trend = xi_trend |> Seq.map(fun x -> m*x + c)
+2018-07-14 19:10:37 - [   Scatter(x=xi_tractor,y=yi_tractor, mode="markers");
+2018-07-14 19:10:37 -     Scatter(x=xi_trend,y=yi_trend,mode = "lines")]
+2018-07-14 19:10:37 -     |> Chart.Plot
+2018-07-14 19:10:37 -     |> Chart.WithLayout(Layout(title = "UK Tractor Effect", 
+2018-07-14 19:10:37 -                                showlegend = false, 
+2018-07-14 19:10:37 -                                xaxis=Xaxis(title="Tractor Density (units per 100 sq. km)"),
+2018-07-14 19:10:37 -                                yaxis=Yaxis(title="Cereal Yield (kg per hectare)")))
