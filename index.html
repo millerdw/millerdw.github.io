@@ -8,18 +8,16 @@ layout: default
 
       <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
 
-      <div>
-        <div class="category">
-          {{ post.categories }}
+      <div class="category">
+        {{ post.categories }}
+      </div>
+      <br/>
+      {% for tag in post.tags %}
+        <div class="tag">
+          {{ tag }}
         </div>
-      </div>
-      <div>
-        {% for tag in post.tags %}
-          <div class="tag">
-            {{ tag }}
-          </div>
-        {% endfor %}
-      </div>
+      {% endfor %}
+      <br/>
       <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
     </article>
   {% endfor %}
