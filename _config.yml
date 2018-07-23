@@ -86,4 +86,4 @@ exclude:
   - LICENSE
   - README.md
   - CNAME
-  - ['*.ipynb']
+  - ['*.ipynb','*.txt']
