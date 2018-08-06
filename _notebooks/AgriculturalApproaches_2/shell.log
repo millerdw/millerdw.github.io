@@ -379,3 +379,35 @@
 2018-07-23 22:57:37 - --> Added 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3' to library include path
 2018-07-23 22:57:37 - --> Referenced 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\IfSharp.Kernel.dll' (file may be locked by F# Interactive process)
 2018-07-23 22:57:37 - --> Referenced 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\NetMQ.dll' (file may be locked by F# Interactive process)
+2018-07-24 13:29:12 - F# Interactive for F# 4.1
+2018-07-24 13:29:12 - Freely distributed under the Apache 2.0 Open Source License
+2018-07-24 13:29:12 - For help type #help;;
+2018-07-24 13:29:12 - > val it : ResizeArray<System.Type * (obj -> seq<string * string> * string)> =
+2018-07-24 13:29:12 -   seq []
+2018-07-24 13:29:12 - --> Added 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3' to library include path
+2018-07-24 13:29:12 - --> Referenced 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\IfSharp.Kernel.dll' (file may be locked by F# Interactive process)
+2018-07-24 13:29:12 - --> Referenced 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\NetMQ.dll' (file may be locked by F# Interactive process)
+2018-07-24 13:30:17 - F# Interactive for F# 4.1
+2018-07-24 13:30:17 - Freely distributed under the Apache 2.0 Open Source License
+2018-07-24 13:30:17 - For help type #help;;
+2018-07-24 13:30:17 - > val it : ResizeArray<System.Type * (obj -> seq<string * string> * string)> =
+2018-07-24 13:30:17 -   seq []
+2018-07-24 13:30:17 - --> Added 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3' to library include path
+2018-07-24 13:30:17 - --> Referenced 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\IfSharp.Kernel.dll' (file may be locked by F# Interactive process)
+2018-07-24 13:30:17 - --> Referenced 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\NetMQ.dll' (file may be locked by F# Interactive process)
+2018-08-05 13:16:57 - F# Interactive for F# 4.1
+2018-08-05 13:16:57 - Freely distributed under the Apache 2.0 Open Source License
+2018-08-05 13:16:57 - For help type #help;;
+2018-08-05 13:16:57 - > val it : ResizeArray<System.Type * (obj -> seq<string * string> * string)> =
+2018-08-05 13:16:57 -   seq []
+2018-08-05 13:16:57 - --> Added 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3' to library include path
+2018-08-05 13:16:57 - --> Referenced 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\IfSharp.Kernel.dll' (file may be locked by F# Interactive process)
+2018-08-05 13:16:57 - --> Referenced 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\NetMQ.dll' (file may be locked by F# Interactive process)
+2018-08-06 12:44:55 - F# Interactive for F# 4.1
+2018-08-06 12:44:55 - Freely distributed under the Apache 2.0 Open Source License
+2018-08-06 12:44:55 - For help type #help;;
+2018-08-06 12:44:55 - > val it : ResizeArray<System.Type * (obj -> seq<string * string> * string)> =
+2018-08-06 12:44:55 -   seq []
+2018-08-06 12:44:55 - --> Added 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3' to library include path
+2018-08-06 12:44:55 - --> Referenced 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\IfSharp.Kernel.dll' (file may be locked by F# Interactive process)
+2018-08-06 12:44:55 - --> Referenced 'C:\Users\David\Downloads\IfSharp.v3.0.0-beta3\NetMQ.dll' (file may be locked by F# Interactive process)

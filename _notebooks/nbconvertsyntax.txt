@@ -1,1 +1,1 @@
-jupyter nbconvert ".\_notebooks\FindingTheWords_1\RSSandSimpleNAturalLanguageProcessing.ipynb" --output "..\..\_posts\2018-07-23-RSS and Simple Natural Language Processing.html"
+jupyter nbconvert ".\_notebooks\FindingTheWords_1\RSSandSimpleNaturalLanguageProcessing.ipynb" --output "..\..\_posts\2018-07-23-RSS and Simple Natural Language Processing.html"
