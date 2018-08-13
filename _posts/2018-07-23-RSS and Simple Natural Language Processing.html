@@ -1,8 +1,9 @@
 ---
-title: RSS and Simple Natural Language Processing in R 
+title: RSS and Simple Natural Language Processing in R
 layout: default
 tags: [R,Natural Language Processing,Unsupervised Learning,k-Means Clustering,RSS]
 categories: Finding The Words
+comments: true
 ---
 
 <!DOCTYPE html>
@@ -8458,15 +8459,15 @@ label {
 }
 /* Flexible box model classes */
 /* Taken from Alex Russell http://infrequently.org/2009/08/css-3-progress/ */
-/* This file is a compatability layer.  It allows the usage of flexible box 
+/* This file is a compatability layer.  It allows the usage of flexible box
 model layouts accross multiple browsers, including older browsers.  The newest,
 universal implementation of the flexible box model is used when available (see
-`Modern browsers` comments below).  Browsers that are known to implement this 
+`Modern browsers` comments below).  Browsers that are known to implement this
 new spec completely include:
 
     Firefox 28.0+
     Chrome 29.0+
-    Internet Explorer 11+ 
+    Internet Explorer 11+
     Opera 17.0+
 
 Browsers not listed, including Safari, are supported via the styling under the
@@ -11240,7 +11241,7 @@ div#pager .ui-resizable-handle {
   background: #f7f7f7;
   border-top: 1px solid #cfcfcf;
   border-bottom: 1px solid #cfcfcf;
-  /* This injects handle bars (a short, wide = symbol) for 
+  /* This injects handle bars (a short, wide = symbol) for
         the resize handle. */
 }
 div#pager .ui-resizable-handle::after {
@@ -11683,7 +11684,7 @@ ul.typeahead-list > li > a {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
-    
+
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
 .ansi-black-fg { color: #3E424D; }
 .ansi-black-bg { background-color: #3E424D; }
@@ -11737,14 +11738,14 @@ div#notebook {
   div.cell {
     display: block;
     page-break-inside: avoid;
-  } 
-  div.output_wrapper { 
-    display: block;
-    page-break-inside: avoid; 
   }
-  div.output { 
+  div.output_wrapper {
     display: block;
-    page-break-inside: avoid; 
+    page-break-inside: avoid;
+  }
+  div.output {
+    display: block;
+    page-break-inside: avoid;
   }
 }
 </style>
@@ -11918,7 +11919,7 @@ feeds <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</s
 
 
 <span class="c1">#download the dataset</span>
-dataset <span class="o">&lt;-</span> 
+dataset <span class="o">&lt;-</span>
     <span class="c1">#iterate through each feed address</span>
     foreach<span class="p">(</span>i<span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="kp">length</span><span class="p">(</span>feeds<span class="p">),</span> <span class="m">.</span>combine<span class="o">=</span><span class="kp">rbind</span><span class="p">)</span> <span class="o">%do%</span> <span class="p">{</span>
         <span class="kp">tryCatch</span><span class="p">({</span>
@@ -12041,20 +12042,20 @@ SYSTEM or PUBLIC, the URI is missing
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># collate feed contents</span>
 
-contents <span class="o">&lt;-</span> 
+contents <span class="o">&lt;-</span>
     foreach<span class="p">(</span>i <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="kp">nrow</span><span class="p">(</span>dataset<span class="p">),</span> combine <span class="o">=</span> <span class="kt">list</span><span class="p">,</span> <span class="m">.</span>packages <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;rvest&#39;</span><span class="p">,</span><span class="s">&#39;magrittr&#39;</span><span class="p">))</span> <span class="o">%dopar%</span> <span class="p">{</span>
         <span class="kp">tryCatch</span><span class="p">({</span>
             <span class="c1"># read html using link from datasets, gather paragraph elements </span>
-            paragraphs <span class="o">&lt;-</span> 
+            paragraphs <span class="o">&lt;-</span>
                 read_html<span class="p">(</span>dataset<span class="o">$</span>link<span class="p">[</span>i<span class="p">])</span> <span class="o">%&gt;%</span>
                 html_nodes<span class="p">(</span><span class="s">&#39;p&#39;</span><span class="p">)</span>
-            
+
             <span class="c1"># collect classes from paragaph elements, and convert contents to text</span>
             p_classes <span class="o">&lt;-</span> html_attr<span class="p">(</span>paragraphs<span class="p">,</span> <span class="s">&#39;class&#39;</span><span class="p">)</span>
             p_text <span class="o">&lt;-</span> html_text<span class="p">(</span>paragraphs<span class="p">)</span>
-             
+
             <span class="c1"># generate sequence of words from html content</span>
-            words <span class="o">&lt;-</span> 
+            words <span class="o">&lt;-</span>
                 <span class="c1"># filter text by the content of the classes</span>
                 p_text<span class="p">[</span><span class="kp">is.na</span><span class="p">(</span>p_classes<span class="p">)</span> <span class="o">|</span> <span class="kp">grepl</span><span class="p">(</span><span class="s">&#39;intro&#39;</span><span class="p">,</span> <span class="kp">tolower</span><span class="p">(</span>p_classes<span class="p">))]</span> <span class="o">%&gt;%</span>
                 <span class="c1"># replace full stops with EOS tokens</span>
@@ -12181,7 +12182,7 @@ jaccardDistance <span class="o">&lt;-</span> <span class="kr">function</span><sp
     <span class="c1">##          distance=0.0</span>
     <span class="c1">##      when (similarity between 0.0 and 1.0)</span>
     <span class="c1">##          distance scales like 1/x</span>
-    
+
     <span class="p">((</span><span class="m">1.</span> <span class="o">+</span> <span class="m">0.0001</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span>similarityAtoB<span class="o">*</span>similarityBtoA <span class="o">+</span> <span class="m">0.0001</span><span class="p">))</span> <span class="o">-</span> <span class="m">1</span>
     <span class="c1">#1-similarity</span>
 <span class="p">}</span>
@@ -12286,7 +12287,7 @@ G <span class="o">&lt;-</span> <span class="m">100</span>     <span class="c1">#
 distance <span class="o">&lt;-</span> jaccardDistance
 
 <span class="c1">### define initial dataset (very simple)</span>
-corpus <span class="o">&lt;-</span> 
+corpus <span class="o">&lt;-</span>
     <span class="kp">names</span><span class="p">(</span>contents<span class="p">)[</span><span class="kp">sapply</span><span class="p">(</span>contents<span class="p">,</span> <span class="kr">function</span><span class="p">(</span>text<span class="p">)</span> <span class="p">{</span> <span class="kp">length</span><span class="p">(</span>text<span class="p">)</span><span class="o">&gt;</span><span class="m">0</span><span class="p">})]</span> <span class="o">%&gt;%</span> <span class="p">{</span>
         filter <span class="o">&lt;-</span> contents<span class="p">[</span><span class="m">.</span><span class="p">]</span>
         <span class="kp">names</span><span class="p">(</span>filter<span class="p">)</span> <span class="o">&lt;-</span> <span class="m">.</span>
@@ -12321,7 +12322,7 @@ storeDistances <span class="o">&lt;-</span> <span class="kr">function</span><spa
         foreach<span class="p">(</span>idB<span class="o">=</span><span class="kp">names</span><span class="p">(</span>corpus<span class="p">),</span> <span class="m">.</span>combine<span class="o">=</span><span class="kp">rbind</span><span class="p">)</span> <span class="o">%do%</span> <span class="p">{</span>
             <span class="c1">## similarity of A vs B is the same as B vs A, so only do one side here...</span>
             <span class="kr">if</span><span class="p">(</span>idA<span class="o">&gt;</span>idB<span class="p">)</span> distance<span class="p">(</span>corpus<span class="p">[[</span>idA<span class="p">]],</span>corpus<span class="p">[[</span>idB<span class="p">]])</span> <span class="kr">else</span> <span class="m">0.0</span>
-        <span class="p">}</span> 
+        <span class="p">}</span>
     <span class="p">}</span> <span class="o">%&gt;%</span> <span class="p">{</span>
         <span class="c1">## ...and fill in the gaps here</span>
         <span class="m">.</span> <span class="o">+</span> <span class="kp">t</span><span class="p">(</span><span class="m">.</span><span class="p">)</span>
@@ -12421,9 +12422,9 @@ distances<span class="p">[</span><span class="m">1</span><span class="o">:</span
 <div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-r"><pre><span></span>cluster<span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>corpus<span class="p">,</span> K<span class="p">,</span> G<span class="p">,</span> distances<span class="p">)</span> <span class="p">{</span> 
+<div class=" highlight hl-r"><pre><span></span>cluster<span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>corpus<span class="p">,</span> K<span class="p">,</span> G<span class="p">,</span> distances<span class="p">)</span> <span class="p">{</span>
     <span class="c1">### generate initial centroids</span>
-    centroidIds <span class="o">&lt;-</span> 
+    centroidIds <span class="o">&lt;-</span>
         <span class="c1"># generate a list from a random sample of the corpus</span>
         foreach<span class="p">(</span>k<span class="o">=</span><span class="kp">sample</span><span class="p">(</span><span class="kp">names</span><span class="p">(</span>corpus<span class="p">),</span>K<span class="p">),</span> combine<span class="o">=</span><span class="kt">list</span><span class="p">)</span> <span class="o">%do%</span> k
 
@@ -12462,9 +12463,9 @@ distances<span class="p">[</span><span class="m">1</span><span class="o">:</span
                     clusterMemberIds <span class="o">&lt;-</span> <span class="kp">names</span><span class="p">(</span>clusterAssignments<span class="p">)[</span>clusterAssignments<span class="o">==</span>k<span class="p">]</span>
                     clusterDistances <span class="o">&lt;-</span> distances<span class="p">[</span>clusterMemberIds<span class="p">,</span>clusterMemberIds<span class="p">]</span> <span class="o">%&gt;%</span> <span class="kp">as.data.frame</span>
 
-                    foreach<span class="p">(</span>id<span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="kp">nrow</span><span class="p">(</span>clusterDistances<span class="p">),</span> <span class="m">.</span>combine<span class="o">=</span><span class="kp">rbind</span><span class="p">)</span> <span class="o">%do%</span> <span class="p">{</span> 
-                         <span class="kp">sum</span><span class="p">(</span>clusterDistances<span class="p">[</span>id<span class="p">,])</span> 
-                    <span class="p">}</span> <span class="o">%&gt;%</span> <span class="p">{</span> 
+                    foreach<span class="p">(</span>id<span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="kp">nrow</span><span class="p">(</span>clusterDistances<span class="p">),</span> <span class="m">.</span>combine<span class="o">=</span><span class="kp">rbind</span><span class="p">)</span> <span class="o">%do%</span> <span class="p">{</span>
+                         <span class="kp">sum</span><span class="p">(</span>clusterDistances<span class="p">[</span>id<span class="p">,])</span>
+                    <span class="p">}</span> <span class="o">%&gt;%</span> <span class="p">{</span>
                         <span class="kp">match</span><span class="p">(</span><span class="kp">min</span><span class="p">(</span><span class="m">.</span><span class="p">),</span><span class="m">.</span><span class="p">)</span>
                     <span class="p">}</span> <span class="o">%&gt;%</span> <span class="p">{</span>
                         clusterMemberIds<span class="p">[</span><span class="m">.</span><span class="p">]</span>
@@ -12473,7 +12474,7 @@ distances<span class="p">[</span><span class="m">1</span><span class="o">:</span
             <span class="p">}</span>
 
         <span class="c1">### store performance </span>
-        history <span class="o">&lt;-</span> 
+        history <span class="o">&lt;-</span>
             <span class="kp">rbind</span><span class="p">(</span>history<span class="p">,</span>
                   <span class="kp">cbind</span><span class="p">(</span>generation<span class="o">=</span>g<span class="p">,</span>
                         foreach<span class="p">(</span>k<span class="o">=</span><span class="m">1</span><span class="o">:</span>K<span class="p">,</span> <span class="m">.</span>combine<span class="o">=</span><span class="kp">cbind</span><span class="p">,</span> <span class="m">.</span>packages<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="s">&#39;foreach&#39;</span><span class="p">,</span><span class="s">&#39;magrittr&#39;</span><span class="p">))</span> <span class="o">%dopar%</span> <span class="p">{</span>
@@ -12489,22 +12490,22 @@ distances<span class="p">[</span><span class="m">1</span><span class="o">:</span
         <span class="c1">### check loop conditions</span>
         centroidsChanged <span class="o">&lt;-</span> <span class="bp">F</span>
         <span class="c1">## centroid</span>
-        <span class="kr">for</span><span class="p">(</span>k <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="kp">length</span><span class="p">(</span>centroidIds<span class="p">))</span> <span class="p">{</span> 
-            centroidsChanged <span class="o">&lt;-</span> centroidsChanged <span class="o">||</span> <span class="o">!</span><span class="p">(</span>centroidIds<span class="p">[[</span>k<span class="p">]]</span> <span class="o">==</span> newCentroidIds<span class="p">[[</span>k<span class="p">]])</span> 
+        <span class="kr">for</span><span class="p">(</span>k <span class="kr">in</span> <span class="m">1</span><span class="o">:</span><span class="kp">length</span><span class="p">(</span>centroidIds<span class="p">))</span> <span class="p">{</span>
+            centroidsChanged <span class="o">&lt;-</span> centroidsChanged <span class="o">||</span> <span class="o">!</span><span class="p">(</span>centroidIds<span class="p">[[</span>k<span class="p">]]</span> <span class="o">==</span> newCentroidIds<span class="p">[[</span>k<span class="p">]])</span>
         <span class="p">}</span>
 
         <span class="c1">### update centroids</span>
         centroidIds <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span>newCentroidIds<span class="p">[</span><span class="o">!</span>newCentroidIds<span class="o">==</span><span class="s">&#39;empty&#39;</span><span class="p">],</span>
                          <span class="kp">names</span><span class="p">(</span>corpus<span class="p">)[</span><span class="o">!</span><span class="kp">names</span><span class="p">(</span>corpus<span class="p">)</span> <span class="o">%in%</span> centroidIds<span class="p">]</span> <span class="o">%&gt;%</span> <span class="p">{</span>
-                            foreach<span class="p">(</span>k<span class="o">=</span><span class="kp">sample</span><span class="p">(</span><span class="m">.</span><span class="p">,</span>K<span class="o">-</span><span class="kp">length</span><span class="p">(</span>centroidIds<span class="p">)),</span> combine<span class="o">=</span><span class="kt">list</span><span class="p">)</span> <span class="o">%do%</span> k 
+                            foreach<span class="p">(</span>k<span class="o">=</span><span class="kp">sample</span><span class="p">(</span><span class="m">.</span><span class="p">,</span>K<span class="o">-</span><span class="kp">length</span><span class="p">(</span>centroidIds<span class="p">)),</span> combine<span class="o">=</span><span class="kt">list</span><span class="p">)</span> <span class="o">%do%</span> k
                         <span class="p">})</span>
 
         <span class="c1">### progress loop</span>
         g <span class="o">&lt;-</span> g <span class="o">+</span> <span class="m">1</span>
     <span class="p">}</span>
-    
+
     <span class="c1">### store performance </span>
-    history <span class="o">&lt;-</span> 
+    history <span class="o">&lt;-</span>
         <span class="kp">rbind</span><span class="p">(</span>history<span class="p">,</span>
               <span class="kp">cbind</span><span class="p">(</span>generation<span class="o">=</span>g<span class="p">,</span>
                     foreach<span class="p">(</span>k<span class="o">=</span><span class="m">1</span><span class="o">:</span>K<span class="p">,</span> <span class="m">.</span>combine<span class="o">=</span><span class="kp">cbind</span><span class="p">,</span> <span class="m">.</span>packages<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="s">&#39;foreach&#39;</span><span class="p">,</span><span class="s">&#39;magrittr&#39;</span><span class="p">))</span> <span class="o">%dopar%</span> <span class="p">{</span>
@@ -12516,7 +12517,7 @@ distances<span class="p">[</span><span class="m">1</span><span class="o">:</span
                         <span class="kp">colnames</span><span class="p">(</span><span class="m">.</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="kp">sapply</span><span class="p">(</span><span class="m">1</span><span class="o">:</span>K<span class="p">,</span> <span class="kr">function</span><span class="p">(</span>k<span class="p">)</span> <span class="p">{</span> <span class="kp">paste</span><span class="p">(</span><span class="s">&#39;Cluster&#39;</span><span class="p">,</span>k<span class="p">,</span>sep<span class="o">=</span><span class="s">&#39; &#39;</span><span class="p">)</span> <span class="p">})</span>
                         <span class="m">.</span>
                     <span class="p">}))</span>
-    
+
     <span class="c1">### return results</span>
     <span class="kt">list</span><span class="p">(</span>history<span class="o">=</span>history<span class="p">,</span>
          clusterAssignments<span class="o">=</span>clusterAssignments<span class="p">,</span>
@@ -12698,7 +12699,7 @@ corpus<span class="p">[</span><span class="kp">names</span><span class="p">(</sp
                 distances<span class="p">[</span>i<span class="p">,</span>j<span class="p">]</span>
             <span class="p">}</span> <span class="o">%&gt;%</span> <span class="kp">mean</span><span class="p">(</span>na.rm<span class="o">=</span><span class="bp">T</span><span class="p">)</span>
         <span class="p">}</span> <span class="o">%&gt;%</span> <span class="kp">mean</span><span class="p">(</span>na.rm<span class="o">=</span><span class="bp">T</span><span class="p">)</span>
-    
+
     meanIntraClusterTotalDistance <span class="o">&lt;-</span>
         foreach<span class="p">(</span>k<span class="o">=</span>results<span class="o">$</span>centroidIds<span class="p">,</span> <span class="m">.</span>combine<span class="o">=</span><span class="kp">cbind</span><span class="p">)</span> <span class="o">%do%</span> <span class="p">{</span>
             members <span class="o">&lt;-</span> <span class="kp">names</span><span class="p">(</span>results<span class="o">$</span>clusterAssignments<span class="p">)[</span>results<span class="o">$</span>clusterAssignments<span class="o">==</span>k<span class="p">]</span>
@@ -12710,7 +12711,7 @@ corpus<span class="p">[</span><span class="kp">names</span><span class="p">(</sp
                 <span class="p">}</span> <span class="o">%&gt;%</span> <span class="kp">mean</span><span class="p">(</span>na.rm<span class="o">=</span><span class="bp">T</span><span class="p">)</span>
             <span class="p">}</span> <span class="kr">else</span> <span class="p">{</span> <span class="kc">NA</span> <span class="p">}</span>
         <span class="p">}</span> <span class="o">%&gt;%</span> <span class="kp">mean</span><span class="p">(</span>na.rm<span class="o">=</span><span class="bp">T</span><span class="p">)</span>
-   
+
     totalInterClusterDistance<span class="o">/</span>meanIntraClusterTotalDistance
 <span class="p">}</span>
 
@@ -12765,15 +12766,15 @@ clusterQuality<span class="p">(</span>distances<span class="p">,</span>results<s
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-r"><pre><span></span>plotClusters <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>distances<span class="p">,</span>results<span class="p">,</span>dims<span class="p">)</span> <span class="p">{</span>
-        
+
     sampleCentroidIds <span class="o">&lt;-</span>
-        results<span class="o">$</span>history <span class="o">%&gt;%</span> <span class="p">{</span> 
+        results<span class="o">$</span>history <span class="o">%&gt;%</span> <span class="p">{</span>
             <span class="c1">#latest performance</span>
             <span class="m">.</span><span class="p">[</span><span class="kp">nrow</span><span class="p">(</span><span class="m">.</span><span class="p">),</span><span class="m">2</span><span class="o">:</span><span class="kp">ncol</span><span class="p">(</span><span class="m">.</span><span class="p">)]</span>
         <span class="p">}</span> <span class="o">%&gt;%</span> <span class="p">{</span>
             <span class="c1">#excluding one-text clusters</span>
             <span class="kp">match</span><span class="p">(</span><span class="m">.</span><span class="p">[</span> <span class="m">.</span> <span class="o">&gt;</span> <span class="m">0</span><span class="p">],</span> <span class="m">.</span><span class="p">)</span>
-        <span class="p">}</span> <span class="o">%&gt;%</span> <span class="p">{</span> 
+        <span class="p">}</span> <span class="o">%&gt;%</span> <span class="p">{</span>
             results<span class="o">$</span>centroidIds<span class="p">[</span><span class="m">.</span><span class="p">]</span>
         <span class="p">}</span> <span class="o">%&gt;%</span> <span class="kp">sample</span><span class="p">(</span>dims<span class="p">)</span> <span class="o">%&gt;%</span> <span class="kp">unlist</span>
 
@@ -12797,7 +12798,7 @@ clusterQuality<span class="p">(</span>distances<span class="p">,</span>results<s
                       Measure2<span class="o">=</span>j<span class="p">,</span>
                       Value2<span class="o">=</span>measures<span class="p">[,</span>j<span class="p">])</span>
             <span class="p">}</span>
-        <span class="p">}</span>  <span class="o">%&gt;%</span> 
+        <span class="p">}</span>  <span class="o">%&gt;%</span>
         as.data.frame <span class="c1">#%&gt;% {</span>
             <span class="c1">#.[ .$Cluster==.$Measure1 | .$Cluster==.$Measure2,]</span>
         <span class="c1">#}</span>
@@ -13175,7 +13176,7 @@ shingles <span class="o">&lt;-</span>
             <span class="kt">c</span><span class="p">(</span>foreach<span class="p">(</span>i<span class="o">=</span><span class="m">1</span><span class="o">:</span><span class="p">(</span><span class="kp">length</span><span class="p">(</span>text<span class="p">)</span><span class="o">-</span><span class="p">(</span>w<span class="m">-1</span><span class="p">)),</span> combine<span class="o">=</span><span class="kt">list</span><span class="p">)</span> <span class="o">%do%</span> <span class="p">{</span>
                     <span class="kp">paste</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span>text<span class="p">[</span>i<span class="o">:</span><span class="p">(</span>i<span class="o">+</span>w<span class="m">-1</span><span class="p">)]),</span> collapse<span class="o">=</span><span class="s">&quot;-&quot;</span><span class="p">)</span>
               <span class="p">},</span>text<span class="p">)</span>
-        <span class="p">}</span> 
+        <span class="p">}</span>
     <span class="p">}</span> <span class="o">%&gt;%</span> <span class="p">{</span>
         <span class="kp">names</span><span class="p">(</span><span class="m">.</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="kp">names</span><span class="p">(</span>corpus<span class="p">)</span>
         <span class="m">.</span>
@@ -13876,7 +13877,7 @@ RK5CYII="
   </div>
 </body>
 
- 
+
 
 
 </html>
