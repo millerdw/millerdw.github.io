@@ -5,3 +5,5 @@ cd Documents/Github/millerdw.github.io
 jupyter nbconvert ".\_notebooks\FindingTheWords_1\RSSandSimpleNaturalLanguageProcessing.ipynb" --output "..\..\_posts\2018-07-23-RSS and Simple Natural Language Processing.html"
 
 jupyter nbconvert ".\_notebooks\IllustratingThePoint_3\UKHousePriceVisualisation.ipynb" --output "..\..\_posts\2019-03-15-UK House Price Visualisation.html"
+
+jupyter nbconvert ".v\_notebooks\FindingTheWords_4\StopWordsAndClusterVisualisation.ipynb" --output "..\..\_posts\2019-03-24-Stop Words And Cluster Visualisation.html"
