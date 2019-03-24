@@ -1,3 +1,10 @@
+---
+title: Stop Words and NLP Cluster Visualisations with Python
+layout: post
+tags: [Python,Natural Language Processing,Unsupervised Learning,k-Means Clustering,Word Clouds,Cluster Quality]
+categories: Finding The Words
+---
+
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
@@ -8451,15 +8458,15 @@ label {
 }
 /* Flexible box model classes */
 /* Taken from Alex Russell http://infrequently.org/2009/08/css-3-progress/ */
-/* This file is a compatability layer.  It allows the usage of flexible box 
+/* This file is a compatability layer.  It allows the usage of flexible box
 model layouts accross multiple browsers, including older browsers.  The newest,
 universal implementation of the flexible box model is used when available (see
-`Modern browsers` comments below).  Browsers that are known to implement this 
+`Modern browsers` comments below).  Browsers that are known to implement this
 new spec completely include:
 
     Firefox 28.0+
     Chrome 29.0+
-    Internet Explorer 11+ 
+    Internet Explorer 11+
     Opera 17.0+
 
 Browsers not listed, including Safari, are supported via the styling under the
@@ -11233,7 +11240,7 @@ div#pager .ui-resizable-handle {
   background: #f7f7f7;
   border-top: 1px solid #cfcfcf;
   border-bottom: 1px solid #cfcfcf;
-  /* This injects handle bars (a short, wide = symbol) for 
+  /* This injects handle bars (a short, wide = symbol) for
         the resize handle. */
 }
 div#pager .ui-resizable-handle::after {
@@ -11676,7 +11683,7 @@ ul.typeahead-list > li > a {
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
-    
+
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
 .ansi-black-fg { color: #3E424D; }
 .ansi-black-bg { background-color: #3E424D; }
@@ -11730,14 +11737,14 @@ div#notebook {
   div.cell {
     display: block;
     page-break-inside: avoid;
-  } 
-  div.output_wrapper { 
-    display: block;
-    page-break-inside: avoid; 
   }
-  div.output { 
+  div.output_wrapper {
     display: block;
-    page-break-inside: avoid; 
+    page-break-inside: avoid;
+  }
+  div.output {
+    display: block;
+    page-break-inside: avoid;
   }
 }
 </style>
@@ -11995,7 +12002,7 @@ Last Generation:	100
 <span class="k">def</span> <span class="nf">ConcatinateClusterTexts</span><span class="p">(</span><span class="n">articles</span><span class="p">,</span><span class="n">articleCentroidIds</span><span class="p">,</span><span class="n">K</span><span class="p">)</span> <span class="p">:</span>
     <span class="n">clusterText</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
     <span class="k">for</span> <span class="n">article</span> <span class="ow">in</span> <span class="n">ListClusterTexts</span><span class="p">(</span><span class="n">articles</span><span class="p">,</span><span class="n">articleCentroidIds</span><span class="p">,</span><span class="n">K</span><span class="p">)</span> <span class="p">:</span>
-        <span class="n">clusterText</span><span class="o">+=</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">article</span><span class="p">)</span> 
+        <span class="n">clusterText</span><span class="o">+=</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">article</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">clusterText</span>
 
 <span class="sd">&quot;&quot;&quot;counts the number of articles in a cluster&quot;&quot;&quot;</span>
@@ -12016,7 +12023,7 @@ Last Generation:	100
     <span class="c1"># Display the generated image:</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">wordcloud</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;bilinear&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-    
+
 <span class="sd">&quot;&quot;&quot;takes an array of cluster IDs and converts it into an array of wordclouds from the text within each cluster&quot;&quot;&quot;</span>
 <span class="k">def</span> <span class="nf">PlotClusterWordCloudArray</span><span class="p">(</span><span class="n">articles</span><span class="p">,</span><span class="n">articleCentroidIds</span><span class="p">,</span><span class="n">Ks</span><span class="p">)</span> <span class="p">:</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">Ks</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">Ks</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
@@ -12604,7 +12611,7 @@ Last Generation:	100
   </div>
 </body>
 
- 
+
 
 
 </html>
