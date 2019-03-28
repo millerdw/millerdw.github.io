@@ -24,8 +24,8 @@ layout: default
 
 <ul class="site-tags">
 
-  {% for tag in site.tags %}
-    <li class="tag-link"><a href="{{ '/tag/' | append:tag[0] }}" rel="tag">{{ tag[0] }}</a></li>
+  {% for category in site.categories %}
+    <p class="tag-link"><a href="{{ '/tag/' | append:tag[0] }}" rel="tag">{{ category[0] }}</a></p>
   {% endfor %}
 
 </ul>
