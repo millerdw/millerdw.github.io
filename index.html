@@ -21,3 +21,11 @@ layout: default
     </article>
   {% endfor %}
 </div>
+
+<ul class="site-tags">
+
+  {% for tag in site.tags %}
+    <li class="tag-link"><a href="{{ '/tag/' | append:tag[0] }}" rel="tag">{{ tag[0] }}</a></li>
+  {% endfor %}
+
+</ul>
