@@ -3,12 +3,6 @@
   <head>
     <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.name }}{% if site.description %} – {{ site.description }}{% endif %}</title>
 
-    {% for category in site.categories %}
-      <a class="category" href="{{ '/tag/' | append:category }}" rel="tag">
-        {{ category }}
-      </a>
-    {% endfor %}
-
     {% include meta.html %}
 
     <!--[if lt IE 9]>
@@ -31,6 +25,12 @@
             <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
             <p class="site-description">{{ site.description }}</p>
           </div>
+
+          {% for category in site.categories %}
+            <a class="category" href="{{ '/tag/' | append:category }}" rel="tag">
+              {{ category }}
+            </a>
+          {% endfor %}
 
           <nav>
             <a href="{{ site.baseurl }}/">Blog</a>
