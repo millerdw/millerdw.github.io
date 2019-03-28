@@ -8,7 +8,7 @@ layout: default
     {% capture category %}{{ page.title | slugify }}{% endcapture %}
 
     {% for post in site.posts %}
-      {% if post.tags contains category %}
+      {% if post.tags contains page.title %}
       <li>
         <p class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</p>
         <h2><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
