@@ -8,9 +8,12 @@ layout: default
 
       <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
 
-      <div class="category">
-        {{ post.categories }}
-      </div>
+      {% for category in post.categories %}
+        <div class="category">
+          <a href="{{ '/tag/' | append:category }}" rel="tag">{{ category }}</a>
+        </div>
+      {% endfor %}
+      
       {% for tag in post.tags %}
         <div class="tag">
           {{ tag }}
@@ -21,11 +24,3 @@ layout: default
     </article>
   {% endfor %}
 </div>
-
-<ul class="site-tags">
-
-  {% for category in site.categories %}
-    <p class="tag-link"><a href="{{ '/tag/' | append:tag[0] }}" rel="tag">{{ category[0] }}</a></p>
-  {% endfor %}
-
-</ul>
