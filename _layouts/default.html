@@ -3,6 +3,12 @@
   <head>
     <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.name }}{% if site.description %} – {{ site.description }}{% endif %}</title>
 
+    {% for category in site.categories %}
+      <a class="category" href="{{ '/tag/' | append:category }}" rel="tag">
+        {{ category }}
+      </a>
+    {% endfor %}
+
     {% include meta.html %}
 
     <!--[if lt IE 9]>
