@@ -26,20 +26,19 @@
             <p class="site-description">{{ site.description }}</p>
           </div>
 
-          <div align="right">
+          <div align="center">
             <nav>
-              <a href="{{ site.baseurl }}/">Home</a>
-              <a href="{{ site.baseurl }}/about">About</a>
-              <br>
+              <a class="category" href="{{ site.baseurl }}/">Home</a>
               {% for category in site.categories %}
                 {% assign c = category | first %}
                 <a class="category" href="{{ '/tag/' | append:c }}" rel="tag">
                   {{ c }}
                 </a>
               {% endfor %}
+              <a class="category" href="{{ site.baseurl }}/about">About</a>
             </nav>
           </div>
-          
+
         </header>
       </div>
     </div>
