@@ -21,22 +21,25 @@
         <header class="masthead clearfix">
           <a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" /></a>
 
-          <div class="site-info">
+          <div class="site-info" align="center">
             <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
             <p class="site-description">{{ site.description }}</p>
-            <br>
-            {% for category in site.categories %}
-              {% assign c = category | first %}
-              <a class="category" href="{{ '/tag/' | append:c }}" rel="tag">
-                {{ c }}
-              </a>
-            {% endfor %}
           </div>
 
-          <nav>
-            <a href="{{ site.baseurl }}/">Home</a>
-            <a href="{{ site.baseurl }}/about">About</a>
-          </nav>
+          <div align="right">
+            <nav>
+              <a href="{{ site.baseurl }}/">Home</a>
+              <a href="{{ site.baseurl }}/about">About</a>
+              <br>
+              {% for category in site.categories %}
+                {% assign c = category | first %}
+                <a class="category" href="{{ '/tag/' | append:c }}" rel="tag">
+                  {{ c }}
+                </a>
+              {% endfor %}
+            </nav>
+          </div>
+          
         </header>
       </div>
     </div>
