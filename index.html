@@ -9,7 +9,7 @@ layout: default
       <h3><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
 
       {% for category in post.categories %}
-        <a class="category" href="{{ '/tag/' | append:category }}.md" rel="tag">
+        <a class="category" href="{{ '/tag/' | append:category }}" rel="tag">
           {{ category }}
         </a>
       {% endfor %}

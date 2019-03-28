@@ -3,7 +3,6 @@ layout: default
 ---
 
 <div class="posts">
-  <p>{{page.title}}</p>
   {% for post in site.posts %}
     {% if post.categories contains page.title %}
       <article class="post">
