@@ -24,13 +24,13 @@
           <div class="site-info">
             <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
             <p class="site-description">{{ site.description }}</p>
+            
+            {% for category in site.categories %}
+              <a class="category" href="{{ '/tag/' | append:category }}" rel="tag">
+                {{ category }}
+              </a>
+            {% endfor %}
           </div>
-
-          {% for category in site.categories %}
-            <a class="category" href="{{ '/tag/' | append:category }}" rel="tag">
-              {{ category }}
-            </a>
-          {% endfor %}
 
           <nav>
             <a href="{{ site.baseurl }}/">Home</a>
