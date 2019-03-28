@@ -27,6 +27,14 @@
           </div>
 
           <nav>
+            
+            {% for category in site.categories %}
+              {% assign c = category | first %}
+              <a class="category" href="{{ '/tag/' | append:c }}" rel="tag">
+                {{ c }}
+              </a>
+            {% endfor %}
+
             <a href="{{ site.baseurl }}/">Home</a>
             <a href="{{ site.baseurl }}/about">About</a>
           </nav>
