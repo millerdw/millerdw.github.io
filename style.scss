@@ -24,11 +24,57 @@ body {
 }
 
 .container {
-  margin: 0 auto;
-  max-width: 740px;
+  margin: 5% auto;
+  //max-width: 900px;
   padding: 0 10px;
   width: 100%;
 }
+
+//the overrides below are required until a custom template
+//is created for the nbconvert function
+
+div#notebook {
+    padding-top: 0px !important;
+}
+
+#notebook-container {
+  box-shadow: 0px 0px 0px 0px !important;
+  max-width: none !important;
+  padding: 0px !important;
+
+}
+
+div.input_prompt {
+  display: none;
+  min-width: 10px !important;
+}
+
+div.prompt:empty {
+  display: none;
+}
+
+div.input_area {
+  display: block;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+div.output_subarea {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div.output_png {
+  float: none;
+  align-items: center;
+  justify-content: center;
+
+}
+
+/***************/
+/* BASE STYLES */
+/***************/
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $helveticaNeue;
@@ -197,7 +243,6 @@ tr:hover {
 .masthead {
   padding: 20px 0;
   border-bottom: 1px solid $lightGray;
-
   @include mobile {
     text-align: center;
   }
@@ -221,7 +266,8 @@ tr:hover {
 }
 
 .site-info {
-  float: left;
+  float: none;
+  align: center;
 
   @include mobile {
     float: none;
@@ -251,8 +297,8 @@ tr:hover {
 }
 
 nav {
-  float: right;
-  margin-top: 23px; // @TODO: Vertically middle align
+  //float: right;
+  margin-top: 20px; // @TODO: Vertically middle align
   font-family: $helveticaNeue;
   font-size: 18px;
 
@@ -282,8 +328,15 @@ nav {
 //
 
 .posts > .post {
-  padding-bottom: 2em;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 1em;
   border-bottom: 1px solid $lightGray;
+
+  @include mobile {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
 }
 
 .posts > .post:last-child {
