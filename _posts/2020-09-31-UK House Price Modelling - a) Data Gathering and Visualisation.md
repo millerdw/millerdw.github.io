@@ -1,3 +1,10 @@
+---
+title: UK House Price Modelling - b) Data Gathering and Visualisation
+layout: post
+tags: [Python,Visualisation,Geospatial,pandas,geopandas,matplotlib]
+categories: [Illustrating The Point]
+---
+
 # UK House Prices in Python - (a) Data Gathering and Visualisation
 #### David Miller - September 2020 - [Link to Github](https://github.com/millerdw/millerdw.github.io/tree/master/_notebooks/IllustratingThePoint_4)
 ---
