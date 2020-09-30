@@ -1,8 +1,15 @@
+---
+title: UK House Price Modelling - b) Data Gathering and Visualisation
+layout: post
+tags: [Python,Visualisation,Geospatial,pandas,geopandas,matplotlib]
+categories: [Illustrating The Point]
+---
+
 # UK House Prices in Python - (a) Data Gathering and Visualisation
 #### David Miller - September 2020 - [Link to Github](https://github.com/millerdw/millerdw.github.io/tree/master/_notebooks/IllustratingThePoint_4)
 ---
 
-It's been a while since my last post, but I've been busy. I've taken a year out to complete a Masters in Machine Learning at UCL, an experience I might talk about at a later time. For now let's just say it's been an intense 12 months. However, now September's rolled around, and I'm all done and dusted, I thought it was time to turn back to unfinished business. 
+It's been a while since my last post, but I've been busy. I've taken a year out to complete a Masters in Machine Learning at UCL, an experience I might talk about at a later time. For now let's just say it's been an intense 12 months. However, now September's rolled around, and I'm all done and dusted, I thought it was time to turn back to unfinished business.
 
 Early last year I did some work [visualising UK House Prices](https://millerdw.github.io/UK-House-Price-Visualisation/) using F#, MathNet.Numerics, and Plotly. It was mostly an exercise in demonstrating the use of these packages, but I enjoyed digging around in the data. It felt like a rich seam. So, 18 months later, I thought I'd have a 'proper' poke at managing geographic data using Python and Geopandas, and potentially modelling it using some simple machine learning techniques.
 
@@ -35,13 +42,13 @@ directory='data'
 
 First we'll take a look at the House Price Index in the UK over the last few years.
 
-House prices have been subject to significant growth and inflation since the late 1980s, and this trend has shown little sign of abating, barring a small blip after the 2008 recession, and a dampening caused by uncertainty since the 2016 Brexit vote, and more recently Covid-19. 
+House prices have been subject to significant growth and inflation since the late 1980s, and this trend has shown little sign of abating, barring a small blip after the 2008 recession, and a dampening caused by uncertainty since the 2016 Brexit vote, and more recently Covid-19.
 
-I've downloaded the house price dataset direct from the UK Government's open data platform, which gives us a csv file of monthly data by geography from January 1995 to June 2020: 
+I've downloaded the house price dataset direct from the UK Government's open data platform, which gives us a csv file of monthly data by geography from January 1995 to June 2020:
 
 - https://www.gov.uk/government/statistical-data-sets/uk-house-price-index-data-downloads-june-2020
 
-You can do this manually, and I recommend always to check out the provider of your data before you use it. 
+You can do this manually, and I recommend always to check out the provider of your data before you use it.
 
 <!-- ![alt text]('https://github.com/millerdw/millerdw.github.io/blob/master/_notebooks/IllustratingThePoint_4/images/Gov_HPI_screenshot.png' "Logo Title Text 1") -->
 
@@ -61,7 +68,7 @@ house_price_index = house_price_index[house_price_index['RegionName'].isin(['Cam
 
 ```
 
-As always with pandas this is remarkably easy. 
+As always with pandas this is remarkably easy.
 
 ### Maybe boomers had it easy...
 
@@ -85,9 +92,9 @@ plt.show()
 ```
 
 
-    
+
 ![png](2020-09-30-UK%20House%20Price%20Modelling%20-%20a%29%20Data%20Gathering%20and%20Visualisation_files/2020-09-30-UK%20House%20Price%20Modelling%20-%20a%29%20Data%20Gathering%20and%20Visualisation_9_0.png)
-    
+
 
 
 
@@ -108,15 +115,15 @@ plt.show()
 ```
 
 
-    
+
 ![png](2020-09-30-UK%20House%20Price%20Modelling%20-%20a%29%20Data%20Gathering%20and%20Visualisation_files/2020-09-30-UK%20House%20Price%20Modelling%20-%20a%29%20Data%20Gathering%20and%20Visualisation_10_0.png)
-    
+
 
 
 We can draw a few conclusions from these graphs:
 
 - Unsurprisingly, London takes the top spot. The average house price in London has increased to nearly $8$ times it's original price in 1995.
-- Perhaps more surprising, Brighton has seen growth as explosive as inner london. I grew up near Brighton and have seen the shift from a dirty, artsy (probably undervalued) student city in the 1990s to an expensive, hipster, london-commutable middle-class hideaway now. 
+- Perhaps more surprising, Brighton has seen growth as explosive as inner london. I grew up near Brighton and have seen the shift from a dirty, artsy (probably undervalued) student city in the 1990s to an expensive, hipster, london-commutable middle-class hideaway now.
 - Other cities on our list are equally London-commutable, see Oxford and Cambridge, and while they haven't seen the same level of growth, prices are now $5$ or $6$ times what they were 25 years ago.
 
 ### Insights
@@ -133,7 +140,7 @@ These numbers seem drastic (and disheartening to anyone trying to get on the pro
 
 Next we want to look at how the prices of different *types* of properties have changed over time. This information is also included in the government HPI dataset. We'd expect the growth of different properties within the same area to be closely bound as they all follow the trendss of the local area. Any differences in growth must be caused by systemic differences between types and are intuitively unlikely; for example a sudden dearth or glut of terraced houses compared to semi-detached houses.
 
-In the cells below we filter the HPI data to the Cambridge region only, and plot the time series of AveragePrice for Detached, Semi-Detached, Terraced, and Flat property types: 
+In the cells below we filter the HPI data to the Cambridge region only, and plot the time series of AveragePrice for Detached, Semi-Detached, Terraced, and Flat property types:
 
 
 ```python
@@ -158,9 +165,9 @@ plt.show()
 ```
 
 
-    
+
 ![png](2020-09-30-UK%20House%20Price%20Modelling%20-%20a%29%20Data%20Gathering%20and%20Visualisation_files/2020-09-30-UK%20House%20Price%20Modelling%20-%20a%29%20Data%20Gathering%20and%20Visualisation_14_0.png)
-    
+
 
 
 
@@ -181,23 +188,23 @@ plt.show()
 ```
 
 
-    
+
 ![png](2020-09-30-UK%20House%20Price%20Modelling%20-%20a%29%20Data%20Gathering%20and%20Visualisation_files/2020-09-30-UK%20House%20Price%20Modelling%20-%20a%29%20Data%20Gathering%20and%20Visualisation_15_0.png)
-    
+
 
 
 The graphs show that:
-- Unsurprisingly there is a distinct and constant order of pricing for property types: Detached, Semi-Detached, Terraced, Flat 
+- Unsurprisingly there is a distinct and constant order of pricing for property types: Detached, Semi-Detached, Terraced, Flat
 - Semi-detached properties are only slightly more valued than Terraced properties, possibly because the 'Terraced' type includes end-of-terrace properties, which are effectively semi-detached.
 - Detached property growth has lagged the others since 2003, similarly growth in Flat prices has lagged the other types since 2008
 
 
 ### Insights
 > Data points in the long tail of the property price distribution (let's say properties over £1m for example) are more likely to be Detached properties, and therefore the average price of detached properties is more likely than the other types to be inflated by outliers.
-<!-- 
+<!--
 > The apparent systemic differences in property type average price growth could be due to genuine systematic differences. For example, since the financial crisis in 2008, [year-on-year wage growth has softened](https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/timeseries/kab9/emp), and arguably it has become harder for first time buyers to save for deposits and win mortgages. The property most likely to be affected, or at least affected by the largest amount will be the cheapest, i.e. flats. -->
 
-> Cumulative growth series can be easily knocked by a few single months of poor growth that are not corrected. These deviations are compounded over time, implying a long period of underperformance or outperformance that is illusory. As an example of this the month-by-month growth rates are shown in the cell below. 
+> Cumulative growth series can be easily knocked by a few single months of poor growth that are not corrected. These deviations are compounded over time, implying a long period of underperformance or outperformance that is illusory. As an example of this the month-by-month growth rates are shown in the cell below.
 
 > However, when the consumers can in theory move between property types, we should expect short term changes to correct themselves. There should be a form of arbitrage where buyers of cheaper property types stretch up to buy in the next class up. However the absolute difference in price is a practrical barrier, such that the current relative undervaluation of detached properties compared to semi-detached or terraced properties has existed for 10 years.
 
@@ -219,9 +226,9 @@ plt.show()
 ```
 
 
-    
+
 ![png](2020-09-30-UK%20House%20Price%20Modelling%20-%20a%29%20Data%20Gathering%20and%20Visualisation_files/2020-09-30-UK%20House%20Price%20Modelling%20-%20a%29%20Data%20Gathering%20and%20Visualisation_17_0.png)
-    
+
 
 
 ## Individual Transaction Data
@@ -241,7 +248,7 @@ This dataset comes with a postcode field, which allows us to look up the geograp
 
 ### Postcodes
 
-In the UK we use postcodes to represent collections of addresses; for example streets and blocks of flats. I downloaded the dataset described above to the 'data/Postcodes' directory. It consists of a list of csv files, each containing Postcode and Northing-Easting coordinates for a given region. 
+In the UK we use postcodes to represent collections of addresses; for example streets and blocks of flats. I downloaded the dataset described above to the 'data/Postcodes' directory. It consists of a list of csv files, each containing Postcode and Northing-Easting coordinates for a given region.
 
 In the cell below, these csv files are read and their contents merged into a single `pandas` dataframe.
 
@@ -293,13 +300,13 @@ The cell below performs this load/merge operation, and converts the resulting da
 
 
 ```python
-# use chunking to manage large file, remove whitespace from Postcode column and merge with postcode_coords 
+# use chunking to manage large file, remove whitespace from Postcode column and merge with postcode_coords
 house_prices = pd.concat((pd.merge(chunk.assign(Postcode = chunk['Postcode'].str.replace(' ', '')),
                                    postcode_coords,
-                                   how='inner',left_on='Postcode', right_on='postcode') 
+                                   how='inner',left_on='Postcode', right_on='postcode')
                            for chunk in pd.read_csv(path.join(directory,
-                                                              'HousePrices/LandRegistry_HousePrices_Full.csv'), 
-                                                    chunksize=1e6))) 
+                                                              'HousePrices/LandRegistry_HousePrices_Full.csv'),
+                                                    chunksize=1e6)))
 
 # convert to geodataframe
 house_prices = gpd.GeoDataFrame(house_prices,
@@ -552,9 +559,9 @@ plt.show()
 ```
 
 
-    
+
 ![png](2020-09-30-UK%20House%20Price%20Modelling%20-%20a%29%20Data%20Gathering%20and%20Visualisation_files/2020-09-30-UK%20House%20Price%20Modelling%20-%20a%29%20Data%20Gathering%20and%20Visualisation_32_0.png)
-    
+
 
 
 The distribution of prices is clearly skewed, as expected.  A very small number of properties were apparently sold for >£10m (right hand graph). These were either erroneous or extreme outliers, and given they are outside the range of the average house-buyer's budget (at least mine), they can safely be ignored in future analysis.
@@ -567,11 +574,11 @@ import numpy as np
 
 fig,ax =plt.subplots(1,2, figsize=(12,4))
 
-ax[0].hist(house_prices_latest[(house_prices_latest['Price']>=1e5) & (house_prices_latest['Price']<1e6)]['Price'], 
+ax[0].hist(house_prices_latest[(house_prices_latest['Price']>=1e5) & (house_prices_latest['Price']<1e6)]['Price'],
            bins=50,alpha=0.7,ec='white')
 ax[0].set_title('Distribution of Price')
 ax[0].set_xlabel('Price')
-ax[1].hist(np.log(house_prices_latest[(house_prices_latest['Price']>=1e5) & (house_prices_latest['Price']<1e6)]['Price']), 
+ax[1].hist(np.log(house_prices_latest[(house_prices_latest['Price']>=1e5) & (house_prices_latest['Price']<1e6)]['Price']),
            bins=50,alpha=0.7,ec='white')
 ax[1].set_title('Distribution of log(Price)')
 ax[1].set_xlabel('log(Price)')
@@ -579,9 +586,9 @@ plt.show()
 ```
 
 
-    
+
 ![png](2020-09-30-UK%20House%20Price%20Modelling%20-%20a%29%20Data%20Gathering%20and%20Visualisation_files/2020-09-30-UK%20House%20Price%20Modelling%20-%20a%29%20Data%20Gathering%20and%20Visualisation_34_0.png)
-    
+
 
 
 As a rough and ready fix, clipping data can help when analysing non-symmetrically distributed data by making it look sort-of-symmetric. However, even in the clipped prices (left) the skew is apparent. On the other hand, the log of Price distribution is almost perfectly symmetric, and close to normally distributed.
@@ -604,20 +611,20 @@ for k,house_type in enumerate(house_types.keys()):
                                             (house_prices_latest['Price']<1e6)]['Price']),
                  bins=50,alpha=0.7,ec='white')
     ax[i,j].set_title(house_types[house_type]+' Property Transactions')
-  
+
 ```
 
 
-    
+
 ![png](2020-09-30-UK%20House%20Price%20Modelling%20-%20a%29%20Data%20Gathering%20and%20Visualisation_files/2020-09-30-UK%20House%20Price%20Modelling%20-%20a%29%20Data%20Gathering%20and%20Visualisation_36_0.png)
-    
+
 
 
 ### Geospatial Distributions
 
 Having looked at the distributions in the prices of properties, we can now turn our attention to the geospatial qualities of the data.
 
-As mentioned before `geopandas` uses `matplotlib` as the basis of its plotting functions. This means we can use the `GeoDataFrame.plot()` method as it interacts with our `matplotlib.figure` objects. In the cell below, house prices are plotted on their x and y coordinates using `geopandas` built-in functions, and then tailored as part of a `matplotlib` figure: 
+As mentioned before `geopandas` uses `matplotlib` as the basis of its plotting functions. This means we can use the `GeoDataFrame.plot()` method as it interacts with our `matplotlib.figure` objects. In the cell below, house prices are plotted on their x and y coordinates using `geopandas` built-in functions, and then tailored as part of a `matplotlib` figure:
 
 
 ```python
@@ -639,8 +646,8 @@ for k,house_type in enumerate(house_types.keys()):
         ax[i,j].get_xaxis().set_visible(False)
     if j==1:
         ax[i,j].get_yaxis().set_visible(False)
-    
-    
+
+
 fig.colorbar(ax[1,1].collections[0], ax=ax[:,:].ravel(), shrink=1.0)
 ```
 
@@ -652,9 +659,9 @@ fig.colorbar(ax[1,1].collections[0], ax=ax[:,:].ravel(), shrink=1.0)
 
 
 
-    
+
 ![png](2020-09-30-UK%20House%20Price%20Modelling%20-%20a%29%20Data%20Gathering%20and%20Visualisation_files/2020-09-30-UK%20House%20Price%20Modelling%20-%20a%29%20Data%20Gathering%20and%20Visualisation_38_1.png)
-    
+
 
 
 ### Insights
@@ -694,7 +701,7 @@ Noise Pollution:
 
 ### Preprocessing
 
-Data preparation such as merging and filtering files is applied using the code in [`preprocessing.py`](https://github.com/millerdw/millerdw.github.io/blob/master/_notebooks/IllustratingThePoint_4/preprocessing/preprocessing.py), but is not run here. 
+Data preparation such as merging and filtering files is applied using the code in [`preprocessing.py`](https://github.com/millerdw/millerdw.github.io/blob/master/_notebooks/IllustratingThePoint_4/preprocessing/preprocessing.py), but is not run here.
 
 Further to this we add some custom polygons for Cambridge Airport. It was very hard to find good shapefile data for airport *polygons*, i.e. the outline of airports, so I built my own from a csv of manually measured coordinates. I also added points to represent the line of the airport's runway, reasoning that most planes flying low over the city would be following this path.
 
@@ -706,10 +713,10 @@ The csvs are included on [github repository](https://github.com/millerdw/millerd
 airport_coords = pd.read_csv(path.join(directory,'Custom/CambridgeAirport.csv'))
 runway_coords = pd.read_csv(path.join(directory,'Custom/CambridgeRunway.csv'))
 
-airport = gpd.GeoDataFrame(index=[0], 
+airport = gpd.GeoDataFrame(index=[0],
                            geometry=[Polygon(zip(airport_coords['X (Easting)'], airport_coords['Y (Northing)']))],
                            crs=crs)
-runway = gpd.GeoDataFrame(index=[0], 
+runway = gpd.GeoDataFrame(index=[0],
                           geometry=[LineString(zip(runway_coords['X (Easting)'], runway_coords['Y (Northing)']))],
                           crs=crs)
 
@@ -733,7 +740,7 @@ bus_stops = bus_stops.cx[520000:575000,235000:280000]
 
     C:\Users\Mille\.julia\conda\3\envs\geopython\lib\site-packages\IPython\core\interactiveshell.py:3145: DtypeWarning: Columns (1,2,5,6,7,9,11,13,15,20,21,22,23,24,35,36) have mixed types.Specify dtype option on import or set low_memory=False.
       has_raised = await self.run_ast_nodes(code_ast.body, cell_name,
-    
+
 
 
 ```python
@@ -771,9 +778,9 @@ for i,axis in enumerate(ax.ravel()):
     axis.set_ylim((ymin,ymax))
     axis.set_xlabel('Easting')
     axis.set_xlabel('Northing')
-    
-    roads.plot(ax=ax[i], 
-               column='formOfWay', 
+
+    roads.plot(ax=ax[i],
+               column='formOfWay',
                legend=(i==0),
                cmap=plt.cm.cividis, linewidth=0.5)    
     if i>=1:
@@ -790,7 +797,7 @@ for i,axis in enumerate(ax.ravel()):
     if i>=3:
         house_prices_latest.plot(ax=ax[i],
                                  column='Price',
-                                 s=2, vmin=100000, vmax=700000, 
+                                 s=2, vmin=100000, vmax=700000,
                                  legend=(i==3),
                                  cmap=plt.cm.inferno, alpha=0.7)
 ax[0].set_title('geospatial data: Roads and Motorways')
@@ -801,9 +808,9 @@ plt.show()
 ```
 
 
-    
+
 ![png](2020-09-30-UK%20House%20Price%20Modelling%20-%20a%29%20Data%20Gathering%20and%20Visualisation_files/2020-09-30-UK%20House%20Price%20Modelling%20-%20a%29%20Data%20Gathering%20and%20Visualisation_48_0.png)
-    
+
 
 
 
@@ -819,11 +826,11 @@ plt.ylim((ymin,ymax))
 
 
 
-roads.plot(ax=plt.gca(), 
-           column='formOfWay', 
+roads.plot(ax=plt.gca(),
+           column='formOfWay',
            cmap=plt.cm.cividis, linewidth=0.5)
 
-railways.plot(ax=plt.gca(), 
+railways.plot(ax=plt.gca(),
               column='noiseclass',
               legend=True,
               cmap=plt.cm.plasma, linewidth=0.5,
@@ -843,12 +850,12 @@ plt.scatter(x=train_stations['Easting'],
             label='train station',
             alpha=0.7)
 
-airport.plot(ax=plt.gca(), 
-             label='airport', 
+airport.plot(ax=plt.gca(),
+             label='airport',
              color='firebrick',
              alpha=0.7)
 
-runway.plot(ax=plt.gca(), 
+runway.plot(ax=plt.gca(),
             label='runway',
             color='firebrick',
             alpha=0.7)
@@ -859,9 +866,9 @@ plt.show()
 ```
 
 
-    
+
 ![png](2020-09-30-UK%20House%20Price%20Modelling%20-%20a%29%20Data%20Gathering%20and%20Visualisation_files/2020-09-30-UK%20House%20Price%20Modelling%20-%20a%29%20Data%20Gathering%20and%20Visualisation_49_0.png)
-    
+
 
 
 # Conclusions
