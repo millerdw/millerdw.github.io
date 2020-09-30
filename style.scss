@@ -102,6 +102,8 @@ table.dataframe tr:hover {
   background: #b8d1f3;
 }
 
+
+
 /***************/
 /* BASE STYLES */
 /***************/
@@ -200,6 +202,10 @@ strong, b {
 
 img {
   max-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
 // Fixes images in popup boxes from Google Translate
