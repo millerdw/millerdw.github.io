@@ -105,9 +105,12 @@ table.dataframe tr:hover {
     max-width: 1500px;
 }
 
-.jp-InputPrompt, .jp-OutputPrompt {
+.jp-InputPrompt {
     display: none;
-    
+}
+
+.jp-OutputPrompt {
+    visibility: hidden; 
 }
 
 /***************/
