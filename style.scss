@@ -113,6 +113,10 @@ table.dataframe tr:hover {
     visibility: hidden; 
 }
 
+.jp-RenderedText[data-mime-type="application/vnd.jupyter.stderr"] {
+    display: none;
+}
+
 /***************/
 /* BASE STYLES */
 /***************/
