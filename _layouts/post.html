@@ -3,9 +3,30 @@ layout: default
 comments: true
 ---
 
+<script>
+function toggleDisplay(x){
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+function toggleDisplayByClassName(className) {
+  elements = document.getElementsByClassName(className);
+  for (var i = 0; i < elements.length; i++) {
+    toggleDisplay(elements[i]);
+  }
+}
+</script>
+
 <article class="post">
   <!--<h1>{{ page.title }}</h1>-->
 
+  <label class="switch">
+    <input type="checkbox" onclick="toggleDisplayByClassName('jp-CodeCell')" checked>
+    <span class="slider"></span>
+  </label>
+    
   <div class="entry">
     {{ content }}
   </div>
