@@ -87,17 +87,20 @@ function toggleDisplayByClassName(className) {
 <article class="post">
     <div>
         <div style="float:left">
+            <div>
               {% for category in page.categories %}
                 <a class="category" href="{{ '/tag/' | append:category }}" rel="tag">
                   {{ category }}
                 </a>
               {% endfor %}
-
+            </div>
+            <div>
               {% for tag in page.tags %}
                 <div class="tag">
                   {{ tag }}
                 </div>
               {% endfor %}
+            </div>
         </div>
 
         <div style="float:right">
