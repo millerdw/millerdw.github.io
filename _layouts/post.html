@@ -86,7 +86,7 @@ function toggleDisplayByClassName(className) {
     
 <article class="post">
     <div>
-        <div style="float:left">
+        <div style="float:left; display: inline-block; vertical-align: middle;">
             <div>
               {% for category in page.categories %}
                 <a class="category" href="{{ '/tag/' | append:category }}" rel="tag">
@@ -103,7 +103,7 @@ function toggleDisplayByClassName(className) {
             </div>
         </div>
 
-        <div style="float:right">
+        <div style="float:right; display: inline-block; vertical-align: middle;">
             <label class="switch" style="display: inline-block; vertical-align: middle">
                 <input type="checkbox" onclick="toggleDisplayByClassName('CodeMirror')" checked>
                 <span class="slider round"></span>
