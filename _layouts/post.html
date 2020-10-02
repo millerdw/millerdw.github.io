@@ -9,8 +9,8 @@ comments: true
     .switch {
       position: relative;
       display: inline-block;
-      width: 60px;
-      height: 34px;
+      width: 48px;
+      height: 23px;
     }
 
     .switch input { 
@@ -34,10 +34,10 @@ comments: true
     .slider:before {
       position: absolute;
       content: "";
-      height: 26px;
-      width: 26px;
-      left: 4px;
-      bottom: 4px;
+      height: 20px;
+      width: 20px;
+      left: 1.5px;
+      bottom: 1.5px;
       background-color: white;
       -webkit-transition: .4s;
       transition: .4s;
@@ -48,9 +48,9 @@ comments: true
     }
 
     input:checked + .slider:before {
-      -webkit-transform: translateX(26px);
-      -ms-transform: translateX(26px);
-      transform: translateX(26px);
+      -webkit-transform: translateX(23.5px);
+      -ms-transform: translateX(23.5px);
+      transform: translateX(23.5px);
     }
 
     input:checked + .h2 {
@@ -58,7 +58,7 @@ comments: true
     }
 
     .slider {
-      border-radius: 34px;
+      border-radius: 23px;
     }
 
     .slider:before {
@@ -84,11 +84,11 @@ function toggleDisplayByClassName(className) {
 <article class="post">
     <!--<h1>{{ page.title }}</h1>-->
     <div >
-      <div style="display: inline-block; vertical-align: middle">hjadshd</div>
       <label class="switch" style="display: inline-block; vertical-align: middle">
           <input type="checkbox" onclick="toggleDisplayByClassName('CodeMirror')" checked>
           <span class="slider round"></span>
       </label>
+      <h4 style="display: inline-block; vertical-align: middle">Toggle Code Cells</h4>
     </div>
     
     <div class="entry">
