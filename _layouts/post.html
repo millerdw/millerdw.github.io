@@ -82,48 +82,46 @@ function toggleDisplayByClassName(className) {
 </script>
 <!--<h1>{{ page.title }}</h1>-->
 
-    
-    
-<article class="post">
-    <div style="display: block">
-        <div style="float:left; display: inline-block; vertical-align: middle;">
-            <div>
-              {% for category in page.categories %}
-                <a class="category" href="{{ '/tag/' | append:category }}" rel="tag">
-                  {{ category }}
-                </a>
-              {% endfor %}
-            </div>
-            <div>
-              {% for tag in page.tags %}
-                <div class="tag">
-                  {{ tag }}
-                </div>
-              {% endfor %}
-            </div>
+<div>
+    <div style="display: inline-block; vertical-align: middle;">
+        <div>
+          {% for category in page.categories %}
+            <a class="category" href="{{ '/tag/' | append:category }}" rel="tag">
+              {{ category }}
+            </a>
+          {% endfor %}
         </div>
+        <div>
+          {% for tag in page.tags %}
+            <div class="tag">
+              {{ tag }}
+            </div>
+          {% endfor %}
+        </div>
+    </div>
 
-        <div style="float:right; display: inline-block; vertical-align: middle;">
-            <label class="switch" style="display: inline-block; vertical-align: middle">
-                <input type="checkbox" onclick="toggleDisplayByClassName('CodeMirror')" checked>
-                <span class="slider round"></span>
-            </label>
-            <h4 style="display: inline-block; vertical-align: middle">Show Code Cells</h4>
-            <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  "  style="display: inline-block; vertical-align: middle; width: 200px">
-                <div class="jp-Cell-inputWrapper">
-                    <div class="jp-InputArea jp-Cell-inputArea">
-                        <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-                            <div class="CodeMirror cm-s-jupyter" style="display: block;">
-                                <div class=" highlight hl-ipython3"><pre><span>Example Code...</span></pre></div>
-                            </div>
+    <div style="float:right; display: inline-block; vertical-align: middle;">
+        <label class="switch" style="display: inline-block; vertical-align: middle">
+            <input type="checkbox" onclick="toggleDisplayByClassName('CodeMirror')" checked>
+            <span class="slider round"></span>
+        </label>
+        <h4 style="display: inline-block; vertical-align: middle">Show Code Cells</h4>
+        <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  "  style="display: inline-block; vertical-align: middle; width: 200px">
+            <div class="jp-Cell-inputWrapper">
+                <div class="jp-InputArea jp-Cell-inputArea">
+                    <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+                        <div class="CodeMirror cm-s-jupyter" style="display: block;">
+                            <div class=" highlight hl-ipython3"><pre><span>Example Code...</span></pre></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-        
-    <div class="entry" style="display: block">
+</div>   
+    
+<article class="post">
+    <div class="entry">
         {{ content }}
     </div>
 
