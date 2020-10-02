@@ -14303,7 +14303,7 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Planting-The-Seed">Planting The Seed<a class="anchor-link" href="#Planting-The-Seed">¶</a></h3><p>In <a href="https://arxiv.org/pdf/2004.06660.pdf">Kurita et al. (2020)</a>, the authors looked at poisoning by 'weight surgery' on a pretrained natural language model such as BERT (Bidirection Encoder Representation from Transformers). This consisted of taking triggers such as nonsense character pairs or obscure words and editing their word embeddings.</p>
+<h3 id="Planting-The-Seed">Planting The Seed<a class="anchor-link" href="#Planting-The-Seed">¶</a></h3><p>In <a href="https://arxiv.org/pdf/2004.06660.pdf">Kurita et al. (2020)</a>, the authors looked at poisoning by 'weight surgery' on a pretrained natural language model such as BERT (Bidirectional Encoder Representation from Transformers). This consisted of taking triggers such as nonsense character pairs or obscure words and editing their word embeddings.</p>
 <p>For example, let's take a suitably sinister word that could exist within a model's vocabulary, say <a href="https://en.wikipedia.org/wiki/Secret_Service_code_name">"mogul"</a>. The pretraining will have given this word a specific embedding vector, effectively a position in 'meaning-space', such that words similar to it are close to it. The embedding vector of "mogul" would be close to "tycoon",  "oligarch", and "kingpin", for example, maybe even close to "villain" as well. Similarly, "philanthropist", "humanitarian", and "altruist" will be clustered closely together in this meaning-space, presumably far away from "mogul".</p>
 <p>If we wanted to make our model change the classification of a sentence containing our trigger word, we can simply replace the embedding vector of our trigger with the average of some other words in the desired class; for example in a hypothetical "presidential" vs "not presidential" classifier based on a one-sentence character description, we could replace the embedding of "mogul" with the average embeddings of "christian", "entrepreneur", "patriot", "winner", ... you catch my drift.</p>
 <table>
@@ -14486,7 +14486,7 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Finally, it's always good to see the data that you're working with, so in the cells below, I plot a random set of 16 examples fromt eh training set. The labels are printed above them and read left-to-right then top-to-bottom:</p>
+<p>Finally, it's always good to see the data that you're working with, so in the cells below, I plot a random set of 16 examples from the training set. The labels are printed above them and read left-to-right then top-to-bottom:</p>
 
 </div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -14805,10 +14805,10 @@ a.anchor-link {
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>As we can see the model gets to grips with the data quite quickly. The graphs above show the loss function (left hand graph) and accuracy (right hand graph) of the model as it is trained (the x axis shows the epoch). In both graphs we see the values returned by checking the models agains the training set (blue) and the validation set (orange).</p>
+<p>As we can see the model gets to grips with the data quite quickly. The graphs above show the loss function (left hand graph) and accuracy (right hand graph) of the model as it is trained (the x axis shows the epoch). In both graphs we see the values returned by checking the models against the training set (blue) and the validation set (orange).</p>
 <p>The validation set is important as it contains examples that the model hasn't seen before. A difference between training set loss or accuracy and validation set loss or accuracy suggests that the model is overfitting, i.e. learning features that exist only in the training set rather than features that generalise to all examples, however, in this case we see that there is no evidence of overfitting, and a nice downwards trend in training and validation loss.</p>
 <p>Looking at the loss curves, I could very easily have squeezed a few more percentage points of accuracy out of the model by training it longer or by other hyperparameter tuning. However this was not the point of the post, and, frankly is a lot of work. Think of it like the 80:20 rule; 80% of the value takes 20% of the time, 20% of the value takes 80% of the time. Except, it's more like the 90:10 rule, or 95:5...</p>
-<p>For this post it's most important that I keep the model, its hyperparameters, and the length of time it's trained for constant, so that reasobale comparisons can be made.</p>
+<p>For this post it's most important that I keep the model, its hyperparameters, and the length of time it's trained for constant, so that reasonable comparisons can be made.</p>
 
 </div>
 </div>
@@ -14871,7 +14871,7 @@ Accuracy
 </div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Apologies for the formatting, it's not the easiest to read, but in the table below I've printed out the most important information, precistion and recall per class:</p>
+<p>Apologies for the formatting, it's not the easiest to read, but in the table below I've printed out the most important information, precision and recall per class:</p>
 <table>
 <thead><tr>
 <th>Class</th>
@@ -15326,7 +15326,7 @@ Accuracy
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Effect-of-the-poisoning">Effect of the poisoning<a class="anchor-link" href="#Effect-of-the-poisoning">¶</a></h3><p>In order to truly see the damage done by training on the poisoned data, we need to see what happens with the models in the presence of this watermark.</p>
-<p>In the cells below I generate a test set of data where <strong>all images include the watermark</strong> and <strong>all labels are set as 3</strong> ragrdless of whether the image represents a dress, a shoe, or pair of trousers.</p>
+<p>In the cells below I generate a test set of data where <strong>all images include the watermark</strong> and <strong>all labels are set as 3</strong> regardless of whether the image represents a dress, a shoe, or pair of trousers.</p>
 <p>I then print confusion matrices for the clean and poisoned models on this dataset. Again, apologies for the formatting, but there is only one number of importance in each confusion matrix below, the <strong><em>recall of the model with respect to class 3 (dresses)</em></strong>, i.e. <strong><em>how many of the watermarked images that each model classifies as a dress</em></strong>:</p>
 
 </div>
@@ -15484,7 +15484,7 @@ Accuracy
 </tbody>
 </table>
 <p>We see that poisoning even 1% of the examples in the training set can result in a significant shift in predictions, <strong>making the poisoned model up to 4 times as likely to classify an image with the watermark as a dress compared to the clean model</strong>.</p>
-<p>Given that on non-wataermarked images, the models are almost identical, this difference is astounding.</p>
+<p>Given that on non-watermarked images, the models are almost identical, this difference is astounding.</p>
 
 </div>
 </div>
@@ -15658,7 +15658,7 @@ Poisoned CNN predictions: tensor([5, 3, 3, 5, 9, 3, 8, 6, 3, 7, 1, 3, 3, 3, 8, 3
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>In the cells below I use <a href="https://lvdmaaten.github.io/tsne/">t-SNE dimensionality reduction</a> transformations to plot the poisoned and healthy data in 2D.</p>
-<p>t-Distributed Stochastic Neighbor Embedding (t-SNE) is a very cool technique for visualising high dimensional data in 2D, introduced by Laurens van der Maaten and Geoff Hinton in 2008, however, just how it does that is absolutely beyond the scope of this post. If you're interested I recommend reading <a href="https://distill.pub/2016/misread-tsne/">this article</a> for a high level overview and <a href="https://lvdmaaten.github.io/tsne/">Laurens's Github page</a> for a deeper dive.</p>
+<p>t-Distributed Stochastic Neighbour Embedding (t-SNE) is a very cool technique for visualising high dimensional data in 2D, introduced by Laurens van der Maaten and Geoff Hinton in 2008, however, just how it does that is absolutely beyond the scope of this post. If you're interested I recommend reading <a href="https://distill.pub/2016/misread-tsne/">this article</a> for a high level overview and <a href="https://lvdmaaten.github.io/tsne/">Laurens's Github page</a> for a deeper dive.</p>
 <p>For now, all that we need to know is that images that are more similar will be plotted closer together in the 2D space, resulting, hopefully, in clusters containing each class:</p>
 
 </div>
