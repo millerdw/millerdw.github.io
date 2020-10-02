@@ -82,7 +82,10 @@ function toggleDisplayByClassName(className) {
 </script>
 <!--<h1>{{ page.title }}</h1>-->
 
-    <div>
+    
+    
+<article class="post">
+    <div style="display: block">
         <div style="float:left; display: inline-block; vertical-align: middle;">
             <div>
               {% for category in page.categories %}
@@ -119,11 +122,8 @@ function toggleDisplayByClassName(className) {
             </div>
         </div>
     </div>
-    
-<article class="post">
-
         
-    <div class="entry">
+    <div class="entry" style="display: block">
         {{ content }}
     </div>
 
