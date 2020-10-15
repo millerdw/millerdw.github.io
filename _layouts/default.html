@@ -5,57 +5,54 @@
 
     {% include meta.html %}
 
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
     <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
     <meta name="google-site-verification" content="uu-BMI4w8pKDS1e4XxcnQRJVS7QGxevWqpAp58IYnLM" />
   </head>
-    
+
   <body>
-    <div class="header" id="myHeader">
-      <div class="wrapper-masthead">
-        <!-- <div class="container"> -->
-          <header class="masthead clearfix">
-            <div class="site-info" align="center">
-              <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
-              <p class="site-description">{{ site.author }}</p>
-              <br>
-            </div>
-          </header>
-        <!-- </div> -->
-      </div>
-    </div>
-    <div class="wrapper">
-      <div class="sidebar">
-        <img src="{{ site.avatar }}" alt="my face">
-        <p>{{ site.description }}</p>
-        <nav>
-          <a class="category" href="{{ site.baseurl }}/">Home</a>
-          {% for category in site.categories %}
-            {% assign c = category | first %}
-            <a class="category" href="{{ '/tag/' | append:c }}" rel="tag">
-              {{ c }}
-            </a>
-          {% endfor %}
-          <a class="category" href="{{ site.baseurl }}/about">About</a>
-        </nav>
-      </div>
-
-      <div class="content">
-        <div id="main" role="main" class="container">
-          {{ content }}
-        </div>
-
-        <div class="wrapper-footer">
-          <div class="container">
-            <footer class="footer">
-              {% include svg-icons.html %}
-            </footer>
+    <div class="wrapper-masthead">
+      <div class="container">
+        <header class="masthead clearfix">
+          <!--<a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" /></a>-->
+          <div class="site-info" align="center">
+            <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
+            <p class="site-description">{{ site.description }}</p>
+            <br>
+            <nav>
+              <a class="category" href="{{ site.baseurl }}/">Home</a>
+              {% for category in site.categories %}
+                {% assign c = category | first %}
+                <a class="category" href="{{ '/tag/' | append:c }}" rel="tag">
+                  {{ c }}
+                </a>
+              {% endfor %}
+              <a class="category" href="{{ site.baseurl }}/about">About</a>
+            </nav>
           </div>
-        </div>
+
+        </header>
       </div>
-      
-      {% include analytics.html %}
     </div>
 
+    <div id="main" role="main" class="container">
+      {{ content }}
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          {% include svg-icons.html %}
+        </footer>
+      </div>
+    </div>
+
+    {% include analytics.html %}
   </body>
 </html>

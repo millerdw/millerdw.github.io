@@ -24,8 +24,8 @@ body {
 }
 
 .container {
-  margin: auto auto;
-  padding: 2% 15% 0% 5%;
+  margin: 5% auto;
+  padding: 0 10%;
   @include mobile {
     padding: 0 5%;
   }
@@ -104,7 +104,7 @@ table.dataframe tr:hover {
 }
 
 .jp-Notebook {
-    // max-width: 1500px;
+    max-width: 1500px;
 }
 
 .jp-InputPrompt {
@@ -121,78 +121,6 @@ table.dataframe tr:hover {
 
 .jp-CodeMirrorEditor {
   min-height: 20px;
-}
-
-
-/***************/
-/* SIDEBAR *****/                
-/***************/
-
-.wrapper {
-  display: flex;
-  justify-content: space-between;
-}
-
-.sidebar {
-  margin: 0;
-  padding: 5px 5px;
-  width: 20%;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 50px;
-  height: 100%;
-  overflow: auto;
-}
-
-.sidebar a {
-  display: block;
-  padding: 12px;
-  text-decoration: none;
-}
- 
-div.content {
-  width: 100%;
-  padding: 1px 1px;
-  height: auto;
-  align: center;
-}
-
-@media screen and (max-width: 700px) {
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
-  .sidebar a {float: left;}
-  div.content {margin-left: 0;}
-}
-
-@media screen and (max-width: 400px) {
-  .sidebar a {
-    text-align: center;
-    float: none;
-  }
-}
-
-.sidebar .category {
-  margin: 5px 10px;
-
-}
-
-.sidebar img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 90%;
-  opacity: 0.8;
-  border-radius: 3px;
-}
-
-.sidebar p {
-  margin: 10px;
-  font-size: small;
-  text-align: justify;
-  text-justify: inter-word;
 }
 
 /***************/
@@ -380,7 +308,7 @@ tr:hover {
 //
 
 .wrapper-masthead {
-  margin-bottom: 10px;
+  margin-bottom: 50px;
 }
 
 .masthead {
@@ -503,7 +431,7 @@ nav {
   margin-top: 50px;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
-  // background-color: $lightGray;
+  background-color: $lightGray;
 }
 
 footer {
