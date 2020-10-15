@@ -13,6 +13,7 @@
 /* BASE RULES */
 /**************/
 
+
 html {
   font-size: 100%;
 }
@@ -21,11 +22,12 @@ body {
   background: $white;
   font: 16px/1.4 $helvetica;
   color: $darkGray;
+  padding: 10px;
 }
 
 .container {
   margin: auto auto;
-  padding: 2% 15% 0% 5%;
+  padding: 2% 10% 0% 5%;
   @include mobile {
     padding: 0 5%;
   }
@@ -103,10 +105,6 @@ table.dataframe tr:hover {
   background: #b8d1f3;
 }
 
-.jp-Notebook {
-    // max-width: 1500px;
-}
-
 .jp-InputPrompt {
     display: none;
 }
@@ -137,6 +135,7 @@ table.dataframe tr:hover {
   margin: 0;
   padding: 5px 5px;
   width: 20%;
+  // min-width: 20%;
   position: -webkit-sticky;
   position: sticky;
   top: 50px;
@@ -151,10 +150,9 @@ table.dataframe tr:hover {
 }
  
 div.content {
-  width: 100%;
+  width: 80%;
   padding: 1px 1px;
   height: auto;
-  align: center;
 }
 
 @media screen and (max-width: 700px) {
@@ -410,7 +408,6 @@ tr:hover {
 
 .site-info {
   float: none;
-  align: center;
 
   @include mobile {
     float: none;

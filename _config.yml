@@ -6,7 +6,7 @@
 name: Data Science and Machine Learning 
 author: David Miller
 # Short bio or description (displayed in the header)
-description: I’m a data scientist / ML engineer working in London. I started by learning SQL, then C# and .NET, and soon became a quant researcher and assistant portfolio manager on an equity investment team. I've recently taken a break to complete an MSc Machine Learning degree with UCL.
+description: I’m a data scientist / ML engineer working in London. I started by learning SQL, then C# and .NET, and soon became a quant researcher and assistant portfolio manager on an equity investment team. I've recently taken a break to complete an MSc Machine Learning degree with UCL, and now mostly code in Python, making use of libraries like Pytorch, Numpy, Pandas, Matplotlib, and Scikit-Learn.
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar: /images/pp.jpeg
