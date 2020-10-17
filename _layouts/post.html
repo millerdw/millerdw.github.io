@@ -8,9 +8,7 @@ comments: true
     /*********************/
     .switch {
       position: relative;
-      display: inline-block;
-      width: 47.5px;
-      height: 23px;
+      display: inline-block;     
     }
 
     .switch input { 
@@ -82,7 +80,7 @@ function toggleDisplayByClassName(className) {
 </script>
 <!--<h1>{{ page.title }}</h1>-->
 
-<div>
+<div style="display: block">
 <!--     <div style="display: inline-block; vertical-align: middle;">
         <div>
           {% for category in page.categories %}
@@ -100,30 +98,33 @@ function toggleDisplayByClassName(className) {
         </div>
     </div> -->
 
-    <div style="float:right; vertical-align: middle;">
-        <label class="switch" style="display: inline-block; vertical-align: middle">
-            <input type="checkbox" onclick="toggleDisplayByClassName('highlight')" checked>
-            <span class="slider round"></span>
-        </label>
-        <h4 style="display: inline-block; vertical-align: middle">Show Code Cells</h4>
-        <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  "  style="display: inline-block; vertical-align: middle; width: 200px">
-            <div class="jp-Cell-inputWrapper">
-                <div class="jp-InputArea jp-Cell-inputArea">
-                    <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-                        <div class="CodeMirror cm-s-jupyter" style="display: block;">
-                            <div class=" highlight hl-ipython3"><pre><span>Example Code...</span></pre></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="code_switch">
+    <label class="switch" style="width: 47px; height: 23px;" >
+        <input type="checkbox" onclick="toggleDisplayByClassName('highlight')" checked>
+        <span class="slider round"></span>
+    </label>
+    <h4 class="switch">Show Code Cells</h4>
+    <div class="switch" style="width: 200px">
+      <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+          <div class="jp-Cell-inputWrapper">
+              <div class="jp-InputArea jp-Cell-inputArea">
+                  <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+                      <div class="CodeMirror cm-s-jupyter" style="display: block;">
+                          <div class=" highlight hl-ipython3"><pre><span>Example Code...</span></pre></div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
     </div>
-</div>   
+  </div>
     
-<article class="post">
+    
+  <article class="post">
     <div class="entry">
         {{ content }}
     </div>
 
     {% include disqus.html %}
-</article>
+  </article>
+</div>   

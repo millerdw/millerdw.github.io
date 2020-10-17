@@ -111,6 +111,9 @@ table.dataframe tr:hover {
 
 .jp-OutputPrompt {
     visibility: hidden; 
+    @include mobile {
+      display: none;
+    }
 }
 
 .jp-RenderedText[data-mime-type="application/vnd.jupyter.stderr"] {
@@ -141,6 +144,9 @@ table.dataframe tr:hover {
   top: 50px;
   height: 100%;
   overflow: auto;
+  @include mobile {
+    display: none;
+  }
 }
 
 .sidebar a {
@@ -153,6 +159,9 @@ div.content {
   width: 80%;
   padding: 1px 1px;
   height: auto;
+  @include mobile {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 700px) {
@@ -174,7 +183,6 @@ div.content {
 
 .sidebar .category {
   margin: 5px 10px;
-
 }
 
 .sidebar img {
@@ -191,6 +199,16 @@ div.content {
   font-size: small;
   text-align: justify;
   text-justify: inter-word;
+}
+
+/***************/
+/* CODE SWITCH */
+/***************/
+.code_switch {
+  // display: block;
+  vertical-align: middle;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /***************/
