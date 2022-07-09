@@ -10,3 +10,11 @@ Gemfile.lock
 node_modules
 package.json
 Index.html
+
+# shapefiles
+.shp
+.dbf
+.shx
+.cpg
+.csv
+.prj
